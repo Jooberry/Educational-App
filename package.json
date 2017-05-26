@@ -1,0 +1,19 @@
+{
+  "name": "group_project",
+  "version": "1.0.0",
+  "description": "This will be the readme at some point.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jooberry/Educational-App.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jooberry/Educational-App/issues"
+  },
+  "homepage": "https://github.com/Jooberry/Educational-App#readme"
+}
