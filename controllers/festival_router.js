@@ -4,17 +4,32 @@ var festivalRouter = express.Router();
 var FestivalQueryHelper = require('../db/festival_query_helper.js');
 var dbHelper = new FestivalQueryHelper();
 
-// index
-festivalRouter.get('/', function(req, res) {
-  dbHelper.allShows(function(shows) {
-    res.json(shows);
+// index events
+festivalRouter.get('/events/', function(req, res) {
+  dbHelper.allEvents(function(events) {
+    res.json(events);
   });
 });
 
-// create
-festivalRouter.post('/', function(req, res) {
-  var show = req.body.show;
-  dbHelper.addShow(show, function(results) {
+// create events
+festivalRouter.post('/events/', function(req, res) {
+  var event = req.body.event;
+  dbHelper.addShow(event, function(results) {
+    res.json(results);
+  });
+});
+
+// index performances
+festivalRouter.get('/performances/', function(req, res) {
+  dbHelper.allPerformances(function(performances) {
+    res.json(performances);
+  });
+});
+
+// create performances
+festivalRouter.post('/performances/', function(req, res) {
+  var performance = req.body.performance;
+  dbHelper.addPerformance(performance, function(results) {
     res.json(results);
   });
 });

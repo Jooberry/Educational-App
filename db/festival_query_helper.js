@@ -27,7 +27,7 @@ FestivalQueryHelper.prototype = {
       });
     });
   },
-  addEvents: function(eventToAdd, onQueryFinished) {
+  addEvent: function(eventToAdd, onQueryFinished) {
     MongoClient.connect(this.url, function(err, db) {
       if (err) {
         throw "FAILED TO ACCESS |" + 'events' + "| COLLECTION IN |" + this.url + "| DATABASE";
@@ -52,7 +52,7 @@ FestivalQueryHelper.prototype = {
       });
     });
   },
-  addPerformances: function(performanceToAdd, onQueryFinished) {
+  addPerformance: function(performanceToAdd, onQueryFinished) {
     MongoClient.connect(this.url, function(err, db) {
       if (err) {
         throw "FAILED TO ACCESS |" + 'performancess' + "| COLLECTION IN |" + this.url + "| DATABASE";
