@@ -1,15 +1,22 @@
-// var FestivalQueryView = require('./festival_query_view.js');
-
+// This is the model that holds the list of shows
 // var ShowList = require('../models/show_list');
 
 var UI = function() {
-  // this.ShowList = new ShowList();
   this.render();
 }
 
 UI.prototype = {
+
   render: function() {
-    console.log("The UI has been asked to render")
+    console.log("The UI has been asked to render");
+
+    var setupFestivalAPI = function() {
+      var populateButton = document.querySelector("#info-window #populate");
+      var logButton = document.querySelector("#info-window #log");
+      // Do stuff
+    }
+
+    setupFestivalAPI();
   }
 }
 
