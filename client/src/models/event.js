@@ -5,11 +5,13 @@
  * 	"latitude": -3.205519,
  * 	"longitude": 55.951242,
  * 	"website": "http://www.edinburghjazzfestival.com/programme/artists/artist-information.html?artist_id=Ingrid+Lucia+Sings+Billie+Holiday+",
+ "title": "Ingrid Lucia Sings Billie Holiday ",
  * }
  */
 
 var Event = function(options) {
   this.code = options.code;
+  this.title = options.title;
   this.description = options.description;
   this.latitude = options.latitude;
   this.longitude = options.longitude;

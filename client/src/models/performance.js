@@ -6,7 +6,7 @@
  * }
  */
 
-var Peformance = function(options) {
+var Performance = function(options) {
   this.code = options.code;
   this.start = options.start;
   this.end = options.end;
