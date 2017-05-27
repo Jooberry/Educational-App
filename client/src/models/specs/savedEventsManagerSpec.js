@@ -25,7 +25,8 @@ beforeEach(function () {
       "end": "2017-07-21 18:30:00",
       "price": 15.5
     }]})
-  savedEvents.add(event1, event2)
+  savedEvents.push(event1)
+  savedEvents.push(event2)
   eventManager = new EventManager();
 });
 
