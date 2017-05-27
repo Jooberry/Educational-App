@@ -15,7 +15,7 @@ var Event = function(options) {
   this.description = options.description;
   this.latitude = options.latitude;
   this.longitude = options.longitude;
-  this.website = options.longitude;
+  this.website = options.website;
 }
 
 Event.prototype = {};

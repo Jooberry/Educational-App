@@ -54,12 +54,11 @@ RemoteFestivalAPIHelper.prototype = {
         // storeEventsInDb
         for (event of results) {
           var theEvent = new Event(event);
-          console.log("STORING:", theEvent.title);
+          console.log(theEvent);
           for (performance of event.performances) {
             performance.code = event.code;
             var thePerformance = new Performance(performance);
-            // console.log("start:", thePerformance.start);
-            // console.log("end:", thePerformance.end);
+            console.log(thePerformance);
           }
         }
         console.log("not cycling through all pages, uncomment remote_festival_api_helper.js lines to reactive");
