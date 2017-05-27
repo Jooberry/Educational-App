@@ -19,5 +19,20 @@
 
 ##### Usage
 
+-   &lt;client/src/helpers/key_file.js> should be created with API keys before making remote requests. The keyfile should look like this:
+
+```jsonString
+var keyFile = {
+  EFC: {
+    new_key_source: "https://api.edinburghfestivalcity.com/login",
+    API_key: "abcdefg123456789",
+    signing_key: "abcdefgABCDEFG123456789"
+  }
+}
+
+module.exports = keyFile;
+```
+
 -   <http://localhost:3000/api/festival/events>: `GET` to retrieve all events, `POST` to add a new event
 -   <http://localhost:3000/api/festival/performances>: `GET` to retrieve all performances, `POST` to add a new performance
+    dd a new performance
