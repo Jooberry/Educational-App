@@ -32,9 +32,11 @@ beforeEach(function () {
 
 describe("EventManager", function(){
   it("check function should return true if event is not overlapping", function(){
-    eventManager.checkEventsDoNotOverlap(savedEvents, event4)
+    var result = eventManager.checkEventsDoNotOverlap(savedEvents, event4)
+    assert.equal(true, result)
   })
   it("check function should return false if the event is overlapping", function(){
-    eventManager.checkEventsDoNotOverlap(savedEvents, event3)
+    var result = eventManager.checkEventsDoNotOverlap(savedEvents, event3)
+    assert.equal(false, result)
   })
 })
