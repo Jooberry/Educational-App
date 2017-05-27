@@ -10,8 +10,14 @@
 
 ### Database/API interaction
 
--   Access via <http://localhost:3000/api/festival>
+##### File description
+
 -   [controllers/index.js](controllers/index.js): hands off requests to the festival_router
 
 -   [controllers/festival_router.js](controllers/festival_router.js): takes API requests, and calls database methods in festival_query_helper to access/alter information
 -   [db/festival_query_helper.js](db/festival_query_helper.js): talks to the mongoDB hosted locally, performs requested action, and then runs passed callback on the results
+
+##### Usage
+
+-   <http://localhost:3000/api/festival/events>: `GET` to retrieve all events, `POST` to add a new event
+-   <http://localhost:3000/api/festival/performances>: `GET` to retrieve all performances, `POST` to add a new performance
