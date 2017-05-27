@@ -54,7 +54,7 @@ RemoteFestivalAPIHelper.prototype = {
         // storeEventsInDb
         for (event of results) {
           var theEvent = new Event(event);
-          // console.log(" = = ", theEvent.title, " = = ");
+          console.log("STORING:", theEvent.title);
           for (performance of event.performances) {
             performance.code = event.code;
             var thePerformance = new Performance(performance);
@@ -62,6 +62,7 @@ RemoteFestivalAPIHelper.prototype = {
             // console.log("end:", thePerformance.end);
           }
         }
+        console.log("not cycling through all pages, uncomment remote_festival_api_helper.js lines to reactive");
         // UNCOMMENT TO CYCLE THROUGH ALL PAGES
         // if (results.length == 25) {
         //   I_HATE_GLOBAL_VARIABLES += 25;

@@ -10,14 +10,16 @@ UI.prototype = {
 
   render: function() {
     console.log("The UI has been asked to render");
-    var remoteFestivalAPIHelper = new RemoteFestivalAPIHelper();
-    remoteFestivalAPIHelper.populateLocalDatabase();
-
 
     var setupFestivalAPI = function() {
       var populateButton = document.querySelector("#info-window #populate");
       var logButton = document.querySelector("#info-window #log");
-      // Do stuff
+
+      populateButton.addEventListener('click', function() {
+        console.log("populate button has been clicked")
+        var remoteFestivalAPIHelper = new RemoteFestivalAPIHelper();
+        remoteFestivalAPIHelper.populateLocalDatabase();
+      })
     }
 
     setupFestivalAPI();
