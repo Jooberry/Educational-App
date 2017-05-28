@@ -102,6 +102,19 @@ UI.prototype = {
 
       logButton.addEventListener('click', function() {
         console.log("log button has been clicked");
+        var RequestHelper = require('../helpers/request_helper.js');
+        var requestHelper = new RequestHelper();
+
+        var url = "http://localhost:3000/api/festival"
+        requestHelper.makeRequest(url + "/events", function(results) {
+          console.log(" = = == = = \n = EVENTS = \n = = == = = ")
+          console.log(results);
+        });
+        requestHelper.makeRequest(url + "/performances", function(results) {
+          console.log(" = = = =  = = = = \n = PERFORMANCES = \n = = = =  = = = = ")
+          console.log(results);
+        });
+
         // var remoteFestivalAPIHelper = new RemoteFestivalAPIHelper();
         // remoteFestivalAPIHelper.populateLocalDatabase();      });
       });
