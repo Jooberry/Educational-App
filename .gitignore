@@ -1,3 +1,5 @@
 node_modules
 
 bundle.*
+
+client/src/helpers/key_file.js
