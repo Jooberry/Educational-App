@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-var datesArray = [
-  {
+var datesArray = [{
     date: '2017-07-23',
     title: 'Jazz: Ultimate Classics'
   },
@@ -17,7 +15,7 @@ var datesArray = [
 // This is the model that holds the list of shows
 // var ShowList = require('../models/show_list');
 var RemoteFestivalAPIHelper = require('../helpers/remote_festival_api_helper.js');
-var MapWrapper = require("../build/public/mapWrapper")
+var MapWrapper = require("../helpers/mapWrapper")
 
 var UI = function() {
   var infoText = document.getElementById('info-text');
@@ -43,22 +41,23 @@ UI.prototype = {
 
     var previousButton = document.getElementById('previous');
     previousButton.addEventListener('click', function() {
-    
+
       var infoText = document.getElementById('info-text');
       infoText.innerHTML = '';
 
-      counter --;
-      
-      if(counter === 0) {
-        counter = datesArray.length; }
+      counter--;
 
-        var eventTitle = document.createElement('h1');
-        eventTitle.innerText = datesArray[counter-1].title;
-        infoText.appendChild(eventTitle);
+      if (counter === 0) {
+        counter = datesArray.length;
+      }
 
-        var eventDate = document.createElement('p');
-        eventDate.innerText = datesArray[counter-1].date;
-        infoText.appendChild(eventDate);
+      var eventTitle = document.createElement('h1');
+      eventTitle.innerText = datesArray[counter - 1].title;
+      infoText.appendChild(eventTitle);
+
+      var eventDate = document.createElement('p');
+      eventDate.innerText = datesArray[counter - 1].date;
+      infoText.appendChild(eventDate);
 
     });
   },
@@ -71,19 +70,20 @@ UI.prototype = {
       var infoText = document.getElementById('info-text');
       infoText.innerHTML = '';
 
-      counter ++;
+      counter++;
 
-      if(counter === datesArray.length + 1) {
-        counter = 1; }
+      if (counter === datesArray.length + 1) {
+        counter = 1;
+      }
 
-        var eventTitle = document.createElement('h1');
-        eventTitle.innerText = datesArray[counter-1].title;
-        infoText.appendChild(eventTitle);
+      var eventTitle = document.createElement('h1');
+      eventTitle.innerText = datesArray[counter - 1].title;
+      infoText.appendChild(eventTitle);
 
-        var eventDate = document.createElement('p');
-        eventDate.innerText = datesArray[counter-1].date;
-        infoText.appendChild(eventDate);
-              
+      var eventDate = document.createElement('p');
+      eventDate.innerText = datesArray[counter - 1].date;
+      infoText.appendChild(eventDate);
+
     });
   },
 
