@@ -23,15 +23,15 @@ var UI = function() {
   eventDate.innerText = '1-29 July, 2017';
   infoText.appendChild(eventDate);
 
-  this.onPreviousClick();
-  this.onNextClick();
+  this.onTimelinePreviousClick();
+  this.onTimelineNextClick();
 
   counter = 0;
 };
 
 UI.prototype = {
 
-  onPreviousClick: function() {
+  onTimelinePreviousClick: function() {
 
     var previousButton = document.getElementById('previous');
     previousButton.addEventListener('click', function() {
@@ -42,7 +42,7 @@ UI.prototype = {
       counter --;
       
       if(counter === 0) {
-        counter = datesArray.length;
+        counter = datesArray.length; }
 
         var eventTitle = document.createElement('h1');
         eventTitle.innerText = datesArray[counter-1].title;
@@ -52,21 +52,10 @@ UI.prototype = {
         eventDate.innerText = datesArray[counter-1].date;
         infoText.appendChild(eventDate);
 
-      } else {
-        
-      var eventTitle = document.createElement('h1');
-      eventTitle.innerText = datesArray[counter-1].title;
-      infoText.appendChild(eventTitle);
-
-      var eventDate = document.createElement('p');
-      eventDate.innerText = datesArray[counter-1].date;
-      infoText.appendChild(eventDate);
-
-      }
     });
   },
 
-  onNextClick: function() {
+  onTimelineNextClick: function() {
 
     var nextButton = document.getElementById('next');
     nextButton.addEventListener('click', function() {
@@ -77,7 +66,7 @@ UI.prototype = {
       counter ++;
 
       if(counter === datesArray.length + 1) {
-        counter = 1;
+        counter = 1; }
 
         var eventTitle = document.createElement('h1');
         eventTitle.innerText = datesArray[counter-1].title;
@@ -87,17 +76,6 @@ UI.prototype = {
         eventDate.innerText = datesArray[counter-1].date;
         infoText.appendChild(eventDate);
               
-      } else {
-              
-      var eventTitle = document.createElement('h1');
-      eventTitle.innerText = datesArray[counter-1].title;
-      infoText.appendChild(eventTitle);
-
-      var eventDate = document.createElement('p');
-      eventDate.innerText = datesArray[counter-1].date;
-      infoText.appendChild(eventDate);
-
-      }
     });
   }
 };
