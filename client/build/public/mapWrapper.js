@@ -1,3 +1,5 @@
+// add array of markers
+
 var MapWrapper = function(container, coords, zoom){
   var container = document.getElementById("main-map");
   this.googleMap = new google.maps.Map(container, {
