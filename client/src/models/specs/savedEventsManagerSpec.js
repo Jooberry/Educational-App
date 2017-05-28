@@ -1,6 +1,6 @@
 var assert = require('assert')
 
-var EventManager = require("../SavedEventManager")
+var EventManager = require("../EventManager")
 var Event = require("../Event")
 
 beforeEach(function () {
@@ -32,11 +32,11 @@ beforeEach(function () {
 
 describe("EventManager", function(){
   it("check function should return true if event is not overlapping", function(){
-    var result = eventManager.checkEventsDoNotOverlap(savedEvents, event4)
-    assert.equal(true, result)
+    var result = eventManager.checkEventsCollision(savedEvents, event4)
+    assert.equal(false, result)
   })
   it("check function should return false if the event is overlapping", function(){
-    var result = eventManager.checkEventsDoNotOverlap(savedEvents, event3)
-    assert.equal(false, result)
+    var result = eventManager.checkEventsCollision(savedEvents, event3)
+    assert.equal(true, result)
   })
 })

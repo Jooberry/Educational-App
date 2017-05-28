@@ -3,7 +3,7 @@ var EventManager = function(){
 }
 
 EventManager.prototype = {
-  checkEventsDoNotOverlap: function(savedEvents, newEvent){
+  checkEventsCollision: function(savedEvents, newEvent){
     //converting dates to seconds
     var startNewEvent = this.dateConverter(newEvent.dates.start)
     for(event of savedEvents){
@@ -11,10 +11,10 @@ EventManager.prototype = {
       var endSavedEvent = this.dateConverter(event.dates.end)
 
       if(startNewEvent >= startSavedEvent  && startNewEvent < endSavedEvent ){
-        return false;
+        return true;
       }
     }
-    return true;
+    return false;
   },
   dateConverter: function(date){
     var convertedDate = new Date(date);
