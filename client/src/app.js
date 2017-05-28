@@ -5,7 +5,7 @@ var app = function(){
   var center = {lat: 55.953251, lng: -3.188267};
   var mainMap = new MapWrapper(mapDiv, center, 13);
   mainMap.addMarker(center);
-  mainMap.addClickEvent();
+  // mainMap.addClickEvent();
 }
 
 
