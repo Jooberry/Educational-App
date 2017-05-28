@@ -41,6 +41,19 @@ UI.prototype = {
 
       counter --;
       
+      if(counter === 0) {
+        counter = datesArray.length;
+
+        var eventTitle = document.createElement('h1');
+        eventTitle.innerText = datesArray[counter-1].title;
+        infoText.appendChild(eventTitle);
+
+        var eventDate = document.createElement('p');
+        eventDate.innerText = datesArray[counter-1].date;
+        infoText.appendChild(eventDate);
+
+      } else {
+        
       var eventTitle = document.createElement('h1');
       eventTitle.innerText = datesArray[counter-1].title;
       infoText.appendChild(eventTitle);
@@ -49,6 +62,7 @@ UI.prototype = {
       eventDate.innerText = datesArray[counter-1].date;
       infoText.appendChild(eventDate);
 
+      }
     });
   },
 
@@ -62,6 +76,19 @@ UI.prototype = {
 
       counter ++;
 
+      if(counter === datesArray.length + 1) {
+        counter = 1;
+
+        var eventTitle = document.createElement('h1');
+        eventTitle.innerText = datesArray[counter-1].title;
+        infoText.appendChild(eventTitle);
+
+        var eventDate = document.createElement('p');
+        eventDate.innerText = datesArray[counter-1].date;
+        infoText.appendChild(eventDate);
+              
+      } else {
+              
       var eventTitle = document.createElement('h1');
       eventTitle.innerText = datesArray[counter-1].title;
       infoText.appendChild(eventTitle);
@@ -70,9 +97,9 @@ UI.prototype = {
       eventDate.innerText = datesArray[counter-1].date;
       infoText.appendChild(eventDate);
 
+      }
     });
   }
-
 };
 
 
