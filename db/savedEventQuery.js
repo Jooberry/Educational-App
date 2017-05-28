@@ -8,7 +8,7 @@ SavedEventQuery.prototype = {
   all: function(onQueryFinished){
     MongoClient.connect(this.url, function(err, db){
       if(db){
-        var collection = db.collection('saved-events')
+        var collection = db.collection('savedevents')
         collection.find().toArray(function(err, docs){
           onQueryFinished(docs)
         })
@@ -19,7 +19,7 @@ SavedEventQuery.prototype = {
   add: function(event, onQueryFinished){
     MongoClient.connect(this.url, function(err, db){
       if(db){
-        var collection = db.collection('saved-events')
+        var collection = db.collection('savedevents')
         collection.insert(events);
         collection.find().toArray(function(err, docs){
           onQueryFinished(docs)
