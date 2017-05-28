@@ -22,12 +22,14 @@ Event.prototype = {
   add: function(onRequestComplete) {
     console.log("ATTEMPTING EVENT SAVE");
     var jsonString = JSON.stringify({
-      code: this.code,
-      title: this.title,
-      description: this.description,
-      latitude: this.latitude,
-      longitude: this.longitude,
-      website: this.website
+      event: {
+        code: this.code,
+        title: this.title,
+        description: this.description,
+        latitude: this.latitude,
+        longitude: this.longitude,
+        website: this.website
+      }
     });
     var request = new XMLHttpRequest();
     request.open('POST', "http://localhost:3000/api/festival/performances");

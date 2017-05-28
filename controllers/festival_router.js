@@ -14,7 +14,7 @@ festivalRouter.get('/events/', function(req, res) {
 // create events
 festivalRouter.post('/events/', function(req, res) {
   var event = req.body.event;
-  dbHelper.addShow(event, function(results) {
+  dbHelper.addEvent(event, function(results) {
     res.json(results);
   });
 });
