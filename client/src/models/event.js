@@ -18,6 +18,30 @@ var Event = function(options) {
   this.website = options.website;
 }
 
-Event.prototype = {};
+Event.prototype = {
+  add: function(onRequestComplete) {
+    console.log("ATTEMPTING EVENT SAVE");
+    var jsonString = JSON.stringify({
+      code: this.code,
+      title: this.title,
+      description: this.description,
+      latitude: this.latitude,
+      longitude: this.longitude,
+      website: this.website
+    });
+    var request = new XMLHttpRequest();
+    request.open('POST', "http://localhost:3000/api/festival/performances");
+    request.setRequestHeader('Content-Type', 'application/json');
+    request.addEventListener('load', function() {
+      if (this.status !== 200) return;
+      var jsonString = this.responseText;
+      var results = JSON.parse(jsonString);
+      // onRequestComplete(results);
+      onRequestComplete();
+    });
+    request.send(jsonString);
+  }
+  //,
+};
 
 module.exports = Event;

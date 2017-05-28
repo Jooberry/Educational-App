@@ -12,6 +12,11 @@ var Performance = function(options) {
   this.end = options.end;
 }
 
-Performance.prototype = {};
+Performance.prototype = {
+  add: function() {
+    console.log("PERFORMANCE SAVE NOT IMPLEMENTED");
+  }
+  //,};
+}
 
 module.exports = Performance;

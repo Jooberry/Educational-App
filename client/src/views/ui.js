@@ -50,7 +50,7 @@ UI.prototype = {
       if (counter === 0 || counter === -1) {
         counter = datesArray.length;
       }
-      
+
       var eventTitle = document.createElement('h1');
       eventTitle.innerText = datesArray[counter - 1].title;
       infoText.appendChild(eventTitle);
@@ -98,7 +98,13 @@ UI.prototype = {
         console.log("populate button has been clicked")
         var remoteFestivalAPIHelper = new RemoteFestivalAPIHelper();
         remoteFestivalAPIHelper.populateLocalDatabase();
-      })
+      });
+
+      logButton.addEventListener('click', function() {
+        console.log("log button has been clicked");
+        // var remoteFestivalAPIHelper = new RemoteFestivalAPIHelper();
+        // remoteFestivalAPIHelper.populateLocalDatabase();      });
+      });
     }
 
     var setupMap = function() {
@@ -112,10 +118,9 @@ UI.prototype = {
       // mainMap.addClickEvent();
     }
 
-    setupFestivalAPI();
     setupMap();
+    setupFestivalAPI();
   }
-
 };
 
 

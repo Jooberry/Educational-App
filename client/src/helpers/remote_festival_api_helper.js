@@ -32,7 +32,7 @@ RemoteFestivalAPIHelper.prototype = {
     }
 
     var newQuery = queryComponent("festival", "jazz") +
-      queryComponent("size", 25) +
+      queryComponent("size", 10) +
       queryComponent("from", I_HATE_GLOBAL_VARIABLES);
 
     var url = queryConstructor(newQuery);
@@ -48,20 +48,27 @@ RemoteFestivalAPIHelper.prototype = {
         if (this.status !== 200) return;
         var jsonString = this.responseText;
         var results = JSON.parse(jsonString);
-        console.log("INDEX", I_HATE_GLOBAL_VARIABLES, "TO", I_HATE_GLOBAL_VARIABLES + 25, "-ish");
-        console.log("FIRST", results[0].title);
+        // console.log("INDEX", I_HATE_GLOBAL_VARIABLES, "TO", I_HATE_GLOBAL_VARIABLES + 25, "-ish");
+        // console.log("FIRST", results[0].title);
 
         // storeEventsInDb
         for (event of results) {
           var theEvent = new Event(event);
-          console.log(theEvent);
+          theEvent.add(function() {
+            console.log("...event has been saved...");
+          })
+          // console.log(theEvent);
           for (performance of event.performances) {
             performance.code = event.code;
             var thePerformance = new Performance(performance);
-            console.log(thePerformance);
+            thePerformance.add(function() {
+              console.log("...performance has been saved...");
+            })
+            // console.log(thePerformance);
           }
         }
         console.log("not cycling through all pages, uncomment remote_festival_api_helper.js lines to reactive");
+        console.log("Also, only saving 10 results intstead of 25");
         // UNCOMMENT TO CYCLE THROUGH ALL PAGES
         // if (results.length == 25) {
         //   I_HATE_GLOBAL_VARIABLES += 25;
