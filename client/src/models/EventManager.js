@@ -1,3 +1,7 @@
+var SavedEventQuery = require('../../db/SavedEventQuery')
+
+var query = new SavedEventQuery()
+
 var EventManager = function(){
 
 }
@@ -20,9 +24,11 @@ EventManager.prototype = {
     var convertedDate = new Date(date);
     var dateinSeconds = Date.parse(convertedDate)
     return dateinSeconds
-  }
+  },
 
-  // all: function()
+  all: function(){
+    var savedEvents = query.all()
+  }
 
 }
 

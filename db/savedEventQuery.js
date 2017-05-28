@@ -13,7 +13,7 @@ SavedEventQuery.prototype = {
           onQueryFinished(docs)
         })
       }
-    }
+    })
   },
 
   add: function(event, onQueryFinished){

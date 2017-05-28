@@ -9,6 +9,7 @@
  * }
  */
 
+
 var Event = function(options) {
   this.code = options.code;
   this.title = options.title;
@@ -18,6 +19,7 @@ var Event = function(options) {
   this.website = options.website;
 }
 
-Event.prototype = {};
+Event.prototype = {
+};
 
 module.exports = Event;

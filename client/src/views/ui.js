@@ -31,6 +31,7 @@ var UI = function() {
   this.onTimelineNextClick();
 
   this.render();
+  this.setUpSavedEvents()
 
   counter = 0;
 };
@@ -50,7 +51,7 @@ UI.prototype = {
       if (counter === 0 || counter === -1) {
         counter = datesArray.length;
       }
-      
+
       var eventTitle = document.createElement('h1');
       eventTitle.innerText = datesArray[counter - 1].title;
       infoText.appendChild(eventTitle);
@@ -114,6 +115,15 @@ UI.prototype = {
 
     setupFestivalAPI();
     setupMap();
+  },
+
+  setUpSavedEvents: function(){
+    var savedEvents = document.getElementById("saved-events")
+    var heading = document.createElement('h3')
+    heading.innerText = "Your Saved Events"
+    savedEvents.appendChild(heading)
+    // var ul = document.createElement
+
   }
 
 };

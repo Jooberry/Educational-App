@@ -12,6 +12,8 @@ savedEventsRouter.get('/', function(req, res){
   })
 })
 
-SavedEventQuery.post("/", function(req, res){
+// savedEventsRouter.post("/", function(req, res){
+//
+// })
 
-})
+module.exports = savedEventsRouter;
