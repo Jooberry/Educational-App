@@ -10,7 +10,7 @@ var datesArray = [
 ]
 
 var UI = function() {
-  var infoText = document.getElementById('info-window');
+  var infoText = document.getElementById('info-text');
   var eventTitle = document.createElement('h1');
   eventTitle.innerText = 'FESTIVAL STUFF';
   infoText.appendChild(eventTitle);
@@ -20,7 +20,9 @@ var UI = function() {
   infoText.appendChild(eventDate);
 };
 
+UI.prototype = {
 
+};
 
 
 module.exports = UI;
