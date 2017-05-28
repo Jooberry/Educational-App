@@ -47,10 +47,10 @@ UI.prototype = {
 
       counter--;
 
-      if (counter === 0) {
+      if (counter === 0 || counter === -1) {
         counter = datesArray.length;
       }
-
+      console.log(counter)
       var eventTitle = document.createElement('h1');
       eventTitle.innerText = datesArray[counter - 1].title;
       infoText.appendChild(eventTitle);
