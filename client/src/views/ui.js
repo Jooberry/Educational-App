@@ -18,9 +18,26 @@ var UI = function() {
   var eventDate = document.createElement('p');
   eventDate.innerText = '1-29 July, 2017';
   infoText.appendChild(eventDate);
+
+  this.onPreviousClick();
+  this.onNextClick();
 };
 
 UI.prototype = {
+
+  onPreviousClick: function() {
+    var previousButton = document.getElementById('previous');
+    previousButton.addEventListener('click', function() {
+    
+    });
+  },
+
+  onNextClick: function() {
+    var nextButton = document.getElementById('next');
+    nextButton.addEventListener('click', function() {
+      
+    });
+  }
 
 };
 
