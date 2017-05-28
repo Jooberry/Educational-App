@@ -21,6 +21,9 @@ EventManager.prototype = {
     var dateinSeconds = Date.parse(convertedDate)
     return dateinSeconds
   }
+
+  // all: function()
+
 }
 
 

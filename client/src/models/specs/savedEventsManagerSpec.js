@@ -1,6 +1,6 @@
 var assert = require('assert')
 
-var EventManager = require("../EventManager")
+var EventManager = require("../SavedEventManager")
 var Event = require("../Event")
 
 beforeEach(function () {
