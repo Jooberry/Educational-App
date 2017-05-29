@@ -1,30 +1,30 @@
 var assert = require('assert')
 
 var EventManager = require("../EventManager")
-var Performance = require("../performance")
+var Event = require("../Event")
 
 beforeEach(function () {
   savedEvents = [];
-  event1 = new Performance({
+  event1 = new Event({  "performances": [{
       "start": "2017-07-20 17:30:00",
       "end": "2017-07-20 18:30:00",
       "price": 15.5
-  })
-  event2 = new Performance({
+    }]})
+  event2 = new Event({  "performances": [{
       "start": "2017-07-20 19:30:00",
       "end": "2017-07-20 20:30:00",
       "price": 15.5
-  })
-  event3 = new Performance({
+    }]})
+  event3 = new Event({  "performances": [{
       "start": "2017-07-20 18:00:00",
       "end": "2017-07-20 18:30:00",
       "price": 15.5
-  })
-  event4 = new Performance({
+    }]})
+  event4 = new Event({  "performances": [{
       "start": "2017-07-21 17:30:00",
       "end": "2017-07-21 18:30:00",
       "price": 15.5
-  })
+    }]})
   savedEvents.push(event1)
   savedEvents.push(event2)
   eventManager = new EventManager();

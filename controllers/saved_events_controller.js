@@ -12,14 +12,6 @@ savedEventsRouter.get('/', function(req, res){
   })
 })
 
-savedEventsRouter.get('/performances', function(req, res){
-  query.allPerformances(function(events){
-    res.json(events)
-  })
+SavedEventQuery.post("/", function(req, res){
+
 })
-
-// savedEventsRouter.post("/", function(req, res){
-//
-// })
-
-module.exports = savedEventsRouter;
