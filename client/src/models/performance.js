@@ -3,12 +3,13 @@ var Performance = function(options) {
   this.code = options.code;
   this.start = options.start;
   this.end = options.end;
+  this.title = options.title;
 }
 
 Performance.prototype = {
-  //
+
   // getTitle: function(){
-  //   query.findTitle(this.code, function(title){
+  //   query.(this.code, function(title){
   //     var title = title
   //   })
   // }
@@ -16,7 +17,8 @@ Performance.prototype = {
     var jsonString = JSON.stringify({
       code: this.code,
       start: this.start,
-      end: this.end
+      end: this.end,
+      title: this.title
     });
     var request = new XMLHttpRequest();
     request.open('POST', "http://localhost:3000/api/festival/performances");
