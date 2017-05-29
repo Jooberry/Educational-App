@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 var datesArray = [
   {
     date: '2017-07-23',
@@ -17,7 +17,7 @@ var datesArray = [
 // This is the model that holds the list of shows
 // var ShowList = require('../models/show_list');
 var RemoteFestivalAPIHelper = require('../helpers/remote_festival_api_helper.js');
-var MapWrapper = require("../build/public/mapWrapper")
+var MapWrapper = require("../../build/public/mapWrapper.js");
 
 var UI = function() {
   var infoText = document.getElementById('info-text');
@@ -109,7 +109,7 @@ UI.prototype = {
       };
       var mainMap = new MapWrapper(mapDiv, center, 13);
       mainMap.addMarker(center);
-      // mainMap.addClickEvent();
+      mainMap.addClickEvent();
     }
 
     setupFestivalAPI();
