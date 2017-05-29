@@ -123,15 +123,41 @@ UI.prototype = {
     var savedEventHelper = new SavedEventApiHelper()
 
     var populateSavedEvents = function(events){
-      console.log(events)
       var heading = document.getElementById("saved-events-heading")
-      var ul = document.createElement('ul')
+      var table = document.createElement('table')
+      var tr = document.createElement("tr")
+
+      var title = document.createElement("th")
+      // title.innerText = event.getTitle();
+      title.innerText = "Name"
+      tr.appendChild(title)
+
+      var start = document.createElement("th")
+      start.innerText = "Start time"
+      tr.appendChild(start)
+
+      var end = document.createElement("th")
+      end.innerText = "End time"
+      tr.appendChild(end)
+
       for(event of events){
-        var li = document.createElement("li")
-        li.innerText = event.title
-        ul.appendChild(li)
+        var tr = document.createElement("tr")
+        var title = document.createElement("td")
+        // title.innerText = event.getTitle();
+        title.innerText = event.code
+        tr.appendChild(title)
+
+        var start = document.createElement("td")
+        start.innerText = event.start
+        tr.appendChild(start)
+
+        var end = document.createElement("td")
+        end.innerText = event.end
+        tr.appendChild(end)
+
+        table.appendChild(tr)
       }
-      heading.appendChild(ul)
+      heading.appendChild(table)
     }
     var heading = document.createElement('h3')
     heading.setAttribute("id", "saved-events-heading")
@@ -139,7 +165,7 @@ UI.prototype = {
     var opened = false
     heading.addEventListener("click", function(){
       if(opened === false) {
-        savedEventHelper.all(populateSavedEvents)
+        savedEventHelper.allPerformances(populateSavedEvents)
         opened = true
         return
       }
@@ -147,11 +173,9 @@ UI.prototype = {
         heading.innerHTML = "Your Saved Events"
         opened = false
       }
-
     })
     savedEvents.appendChild(heading)
   }
-
 };
 
 

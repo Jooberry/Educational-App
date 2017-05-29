@@ -10,11 +10,10 @@ var SavedEventApiHelper = function(){
 
 SavedEventApiHelper.prototype = {
   all: function(onRequestComplete){
-    // console.log("making request")
-    // console.log(this.url)
-    // console.log(this)
-    // this.requestHelper.makeRequest = this.requestHelper.makeRequest.bind(this);
     this.requestHelper.makeRequest(this.url, onRequestComplete);
+  },
+  allPerformances: function(onRequestComplete){
+    this.requestHelper.makeRequest(this.url + "/performances", onRequestComplete)
   }
 }
 
