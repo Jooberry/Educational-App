@@ -19,6 +19,13 @@ var events = [
     title: 'Tired of Coding Jazz',
     description: 'Made me lethargic',
     eventCode: 'F3'
+  },
+  {
+    date: '2017-07-21',
+    startTime: '19:45',
+    title: 'Group Jazz Time',
+    description: 'Jazz in a group',
+    eventCode: 'F4'
   }
 ]
 
@@ -55,6 +62,11 @@ var Timeline = function() {
     cite.textContent = event.title;
     listItem.appendChild(cite);
 
+    var addEventButton = document.createElement("button");
+    addEventButton.id = "add-button";
+    addEventButton.innerText = "Add Event";
+    listItem.appendChild(addEventButton);
+
     var descList = document.createElement("dl");
     descTerms.forEach(function(term)  {
       if (event[term.key]) {
@@ -64,6 +76,8 @@ var Timeline = function() {
         var descElem = document.createElement("dd");
         descElem.textContent = event[term.key];
         descList.appendChild(descElem);
+        var descBreak = document.createElement("br");
+        descList.appendChild(descBreak);
       }
     });
     listItem.appendChild(descList);
