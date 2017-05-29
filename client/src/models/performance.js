@@ -5,6 +5,8 @@
  *   "end": "2017-07-20 18:30:00"
  * }
  */
+// var Savedquery = require('../../db/savedEventQuery')
+// var query = new SavedEventQuery()
 
 var Performance = function(options) {
   this.code = options.code;
@@ -12,6 +14,13 @@ var Performance = function(options) {
   this.end = options.end;
 }
 
-Performance.prototype = {};
+Performance.prototype = {
+  //
+  // getTitle: function(){
+  //   query.findTitle(this.code, function(title){
+  //     var title = title
+  //   })
+  // }
+};
 
 module.exports = Performance;
