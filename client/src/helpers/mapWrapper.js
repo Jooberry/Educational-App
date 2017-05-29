@@ -1,10 +1,5 @@
-<<<<<<< HEAD:client/build/public/mapWrapper.js
-// add array of markers
 
-var MapWrapper = function(container, coords, zoom){
-=======
 var MapWrapper = function(container, coords, zoom) {
->>>>>>> development:client/src/helpers/mapWrapper.js
   var container = document.getElementById("main-map");
   this.googleMap = new google.maps.Map(container, {
     center: coords,
@@ -34,15 +29,12 @@ MapWrapper.prototype = {
       this.markerLocations.push(position);
       console.log(this.markerLocations)
     }.bind(this));
-<<<<<<< HEAD:client/build/public/mapWrapper.js
     }
 
   // addClickInfoWindow: function(){
 
   // }
-=======
->>>>>>> development:client/src/helpers/mapWrapper.js
   }
-}
+
 
 module.exports = MapWrapper;
