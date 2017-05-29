@@ -34,6 +34,8 @@ FestivalQueryHelper.prototype = {
         return;
       }
       var collection = db.collection('events');
+      console.log("eventToAdd");
+      console.log(eventToAdd);
       collection.insert(eventToAdd);
       collection.find().toArray(function(err, docs) {
         onQueryFinished(docs);

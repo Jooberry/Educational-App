@@ -1,0 +1,2 @@
+use festival;
+db.dropDatabase()

@@ -20,7 +20,6 @@ var Event = function(options) {
 
 Event.prototype = {
   add: function(onRequestComplete) {
-    console.log("ATTEMPTING EVENT SAVE");
     var jsonString = JSON.stringify({
       event: {
         code: this.code,
@@ -32,7 +31,7 @@ Event.prototype = {
       }
     });
     var request = new XMLHttpRequest();
-    request.open('POST', "http://localhost:3000/api/festival/performances");
+    request.open('POST', "http://localhost:3000/api/festival/events");
     request.setRequestHeader('Content-Type', 'application/json');
     request.addEventListener('load', function() {
       if (this.status !== 200) return;

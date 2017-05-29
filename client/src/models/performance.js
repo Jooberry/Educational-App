@@ -13,8 +13,25 @@ var Performance = function(options) {
 }
 
 Performance.prototype = {
-  add: function() {
-    console.log("PERFORMANCE SAVE NOT IMPLEMENTED");
+  add: function(onRequestComplete) {
+    var jsonString = JSON.stringify({
+      performance: {
+        code: this.code,
+        start: this.start,
+        end: this.end
+      }
+    });
+    var request = new XMLHttpRequest();
+    request.open('POST', "http://localhost:3000/api/festival/performances");
+    request.setRequestHeader('Content-Type', 'application/json');
+    request.addEventListener('load', function() {
+      if (this.status !== 200) return;
+      var jsonString = this.responseText;
+      var results = JSON.parse(jsonString);
+      // onRequestComplete(results);
+      onRequestComplete();
+    });
+    request.send(jsonString);
   }
   //,};
 }

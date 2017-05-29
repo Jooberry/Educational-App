@@ -12,8 +12,6 @@ var datesArray = [{
   }
 ]
 
-// This is the model that holds the list of shows
-// var ShowList = require('../models/show_list');
 var RemoteFestivalAPIHelper = require('../helpers/remote_festival_api_helper.js');
 var MapWrapper = require("../helpers/mapWrapper")
 
@@ -106,17 +104,16 @@ UI.prototype = {
         var requestHelper = new RequestHelper();
 
         var url = "http://localhost:3000/api/festival"
+
         requestHelper.makeRequest(url + "/events", function(results) {
           console.log(" = = == = = \n = EVENTS = \n = = == = = ")
           console.log(results);
         });
+
         requestHelper.makeRequest(url + "/performances", function(results) {
           console.log(" = = = =  = = = = \n = PERFORMANCES = \n = = = =  = = = = ")
           console.log(results);
         });
-
-        // var remoteFestivalAPIHelper = new RemoteFestivalAPIHelper();
-        // remoteFestivalAPIHelper.populateLocalDatabase();      });
       });
     }
 
