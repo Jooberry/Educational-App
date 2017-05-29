@@ -28,10 +28,6 @@ MapWrapper.prototype = {
       console.log(this.markerLocations)
     }.bind(this));
     }
-
-  // addClickInfoWindow: function(){
-
-  // }
   }
 
 
