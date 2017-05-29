@@ -1,7 +1,9 @@
 var keyFile = require('./key_file');
 var Hashes = require('jshashes');
 var Event = require('../models/event.js');
+var EventsList = require('../models/events_list.js');
 var Performance = require('../models/performance.js');
+var PerformancesList = require('../models/performances_list.js');
 
 var RemoteFestivalAPIHelper = function(currentIndex = 0) {
   this.currentIndex = currentIndex;
@@ -30,44 +32,50 @@ RemoteFestivalAPIHelper.prototype = {
 
       return url;
     }
-
+    var size = 100;
     var newQuery = queryComponent("festival", "jazz") +
-      queryComponent("size", 25) +
+      // queryComponent("size", 100) +
+      queryComponent("size", size) +
       queryComponent("from", I_HATE_GLOBAL_VARIABLES);
 
     var url = queryConstructor(newQuery);
 
-    // Get all events
     function getAllEvents() {
       var request = new XMLHttpRequest();
       request.open('GET', url);
       request.setRequestHeader("Accept", "application/json");
 
-
       function onLoad() {
-        if (this.status !== 200) return;
+        if (this.status !== 200) {
+          return;
+        }
         var jsonString = this.responseText;
         var results = JSON.parse(jsonString);
-        console.log("INDEX", I_HATE_GLOBAL_VARIABLES, "TO", I_HATE_GLOBAL_VARIABLES + 25, "-ish");
-        console.log("FIRST", results[0].title);
+        console.log("INDEX", I_HATE_GLOBAL_VARIABLES, "TO", I_HATE_GLOBAL_VARIABLES + size, "-ish");
 
-        // storeEventsInDb
+        var eventsList = new EventsList();
         for (event of results) {
           var theEvent = new Event(event);
-          console.log(theEvent);
+          eventsList.events.push(theEvent);
+          var performancesList = new PerformancesList();
           for (performance of event.performances) {
             performance.code = event.code;
             var thePerformance = new Performance(performance);
-            console.log(thePerformance);
+            performancesList.performances.push(thePerformance);
           }
+          performancesList.add(function() {
+            console.log("Block of performances processed");
+          })
         }
-        console.log("not cycling through all pages, uncomment remote_festival_api_helper.js lines to reactive");
-        // UNCOMMENT TO CYCLE THROUGH ALL PAGES
-        // if (results.length == 25) {
-        //   I_HATE_GLOBAL_VARIABLES += 25;
-        //   var helper = new RemoteFestivalAPIHelper(I_HATE_GLOBAL_VARIABLES);
-        //   helper.populateLocalDatabase();
-        // }
+        eventsList.add(function() {
+          console.log("Block of events processed");
+        })
+        if (results.length == 100) {
+          console.log("GETTING NEXT PAGE");
+          I_HATE_GLOBAL_VARIABLES += 100;
+          var helper = new RemoteFestivalAPIHelper(I_HATE_GLOBAL_VARIABLES);
+          helper.populateLocalDatabase();
+        }
       }
       request.addEventListener('load', onLoad);
 
@@ -76,10 +84,6 @@ RemoteFestivalAPIHelper.prototype = {
 
     getAllEvents();
   }
-
-
-
-
 }
 
 module.exports = RemoteFestivalAPIHelper;

@@ -1,3 +1,7 @@
+// var SavedEventQuery = require('../../db/savedEventQuery')
+
+// var query = new SavedEventQuery()
+
 var EventManager = function(){
 
 }
@@ -5,10 +9,10 @@ var EventManager = function(){
 EventManager.prototype = {
   checkEventsCollision: function(savedEvents, newEvent){
     //converting dates to seconds
-    var startNewEvent = this.dateConverter(newEvent.dates.start)
+    var startNewEvent = this.dateConverter(newEvent.start)
     for(event of savedEvents){
-      var startSavedEvent = this.dateConverter(event.dates.start)
-      var endSavedEvent = this.dateConverter(event.dates.end)
+      var startSavedEvent = this.dateConverter(event.start)
+      var endSavedEvent = this.dateConverter(event.end)
 
       if(startNewEvent >= startSavedEvent  && startNewEvent < endSavedEvent ){
         return true;
@@ -21,8 +25,6 @@ EventManager.prototype = {
     var dateinSeconds = Date.parse(convertedDate)
     return dateinSeconds
   }
-
-  // all: function()
 
 }
 

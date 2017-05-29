@@ -13,7 +13,17 @@ SavedEventQuery.prototype = {
           onQueryFinished(docs)
         })
       }
-    }
+    })
+  },
+  allPerformances: function(onQueryFinished){
+    MongoClient.connect(this.url, function(err, db){
+      if(db){
+        var collection = db.collection('savedperformances')
+        collection.find().toArray(function(err, docs){
+          onQueryFinished(docs)
+        })
+      }
+    })
   },
 
   add: function(event, onQueryFinished){
@@ -22,6 +32,17 @@ SavedEventQuery.prototype = {
         var collection = db.collection('savedevents')
         collection.insert(events);
         collection.find().toArray(function(err, docs){
+          onQueryFinished(docs)
+        })
+      }
+    })
+  },
+  //needs some thought
+  findTitle: function(code, onQueryFinished){
+    MongoClient.connect(this.url, function(err, db){
+      if(db){
+        var collection = db.collection('savedevents')
+        collection.find({"code": code}).toString(function(err, docs){
           onQueryFinished(docs)
         })
       }
