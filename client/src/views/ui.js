@@ -15,6 +15,7 @@ var datesArray = [{
 // This is the model that holds the list of shows
 // var ShowList = require('../models/show_list');
 var RemoteFestivalAPIHelper = require('../helpers/remote_festival_api_helper.js');
+var SavedEventApiHelper = require('../helpers/saved_event_api_helper.js')
 var MapWrapper = require("../helpers/mapWrapper")
 
 var UI = function() {
@@ -119,8 +120,25 @@ UI.prototype = {
 
   setUpSavedEvents: function(){
     var savedEvents = document.getElementById("saved-events")
+    var savedEventHelper = new SavedEventApiHelper()
+
+    var populateSavedEvents = function(events){
+      console.log(events)
+      var heading = document.getElementById("saved-events-heading")
+      var ul = document.createElement('ul')
+      for(event of events){
+        var li = document.createElement("li")
+        li.innerText = event.title
+        ul.appendChild(li)
+      }
+      heading.appendChild(ul)
+    }
     var heading = document.createElement('h3')
+    heading.setAttribute("id", "saved-events-heading")
     heading.innerText = "Your Saved Events"
+    heading.addEventListener("click", function(){
+      savedEventHelper.all(populateSavedEvents)
+    })
     savedEvents.appendChild(heading)
     // var ul = document.createElement
 
