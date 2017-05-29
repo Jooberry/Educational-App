@@ -13,7 +13,13 @@ festivalRouter.get('/events/', function(req, res) {
 
 // create events
 festivalRouter.post('/events/', function(req, res) {
-  var event = req.body.event;
+  // console.log("\n \n");
+  // console.log("\n \n");
+  // console.log(" |==| req.body |==| ");
+  // console.log(req.body);
+  // console.log("\n \n");
+  // console.log("\n \n");
+  var event = req.body;
   dbHelper.addEvent(event, function(results) {
     res.json(results);
   });
@@ -28,7 +34,7 @@ festivalRouter.get('/performances/', function(req, res) {
 
 // create performances
 festivalRouter.post('/performances/', function(req, res) {
-  var performance = req.body.performance;
+  var performance = req.body;
   dbHelper.addPerformance(performance, function(results) {
     res.json(results);
   });

@@ -19,29 +19,29 @@ var Event = function(options) {
 }
 
 Event.prototype = {
-  add: function(onRequestComplete) {
-    var jsonString = JSON.stringify({
-      event: {
-        code: this.code,
-        title: this.title,
-        description: this.description,
-        latitude: this.latitude,
-        longitude: this.longitude,
-        website: this.website
-      }
-    });
-    var request = new XMLHttpRequest();
-    request.open('POST', "http://localhost:3000/api/festival/events");
-    request.setRequestHeader('Content-Type', 'application/json');
-    request.addEventListener('load', function() {
-      if (this.status !== 200) return;
-      var jsonString = this.responseText;
-      var results = JSON.parse(jsonString);
-      // onRequestComplete(results);
-      onRequestComplete();
-    });
-    request.send(jsonString);
-  }
+  // add: function(onRequestComplete) {
+  //   var jsonString = JSON.stringify({
+  //     event: {
+  //       code: this.code,
+  //       title: this.title,
+  //       description: this.description,
+  //       latitude: this.latitude,
+  //       longitude: this.longitude,
+  //       website: this.website
+  //     }
+  //   });
+  //   var request = new XMLHttpRequest();
+  //   request.open('POST', "http://localhost:3000/api/festival/events");
+  //   request.setRequestHeader('Content-Type', 'application/json');
+  //   request.addEventListener('load', function() {
+  //     if (this.status !== 200) return;
+  //     var jsonString = this.responseText;
+  //     var results = JSON.parse(jsonString);
+  //     // onRequestComplete(results);
+  //     onRequestComplete();
+  //   });
+  //   request.send(jsonString);
+  // }
   //,
 };
 

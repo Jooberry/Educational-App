@@ -36,10 +36,15 @@ FestivalQueryHelper.prototype = {
       var collection = db.collection('events');
       console.log("eventToAdd");
       console.log(eventToAdd);
-      collection.insert(eventToAdd);
-      collection.find().toArray(function(err, docs) {
-        onQueryFinished(docs);
+      collection.insert(eventToAdd, null, function(err, docs) {
+
+        console.log('inserted', docs.ops[0])
+        // onQueryFinished(docs[0]);
+        onQueryFinished(docs.ops[0])
+
       });
+      // collection.find().toArray(function(err, docs) {
+      // });
     });
   },
   allPerformances: function(onQueryFinished) {
@@ -61,10 +66,15 @@ FestivalQueryHelper.prototype = {
         return;
       }
       var collection = db.collection('performances');
-      collection.insert(performanceToAdd);
-      collection.find().toArray(function(err, docs) {
-        onQueryFinished(docs);
+      collection.insert(performanceToAdd, null, function(err, docs) {
+        console.log('inserted', docs.ops[0])
+        // onQueryFinished(docs[0]);
+        onQueryFinished(docs.ops[0])
+
       });
+      // collection.find().toArray(function(err, docs) {
+      //   onQueryFinished(docs);
+      // });
     });
   }
 };

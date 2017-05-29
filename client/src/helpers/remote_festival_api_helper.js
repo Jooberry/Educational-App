@@ -1,7 +1,9 @@
 var keyFile = require('./key_file');
 var Hashes = require('jshashes');
 var Event = require('../models/event.js');
+var EventsList = require('../models/events_list.js');
 var Performance = require('../models/performance.js');
+var PerformancesList = require('../models/performances_list.js');
 
 var RemoteFestivalAPIHelper = function(currentIndex = 0) {
   this.currentIndex = currentIndex;
@@ -30,9 +32,10 @@ RemoteFestivalAPIHelper.prototype = {
 
       return url;
     }
-
+    var size = 100;
     var newQuery = queryComponent("festival", "jazz") +
-      queryComponent("size", 100) +
+      // queryComponent("size", 100) +
+      queryComponent("size", size) +
       queryComponent("from", I_HATE_GLOBAL_VARIABLES);
 
     var url = queryConstructor(newQuery);
@@ -46,21 +49,28 @@ RemoteFestivalAPIHelper.prototype = {
         if (this.status !== 200) return;
         var jsonString = this.responseText;
         var results = JSON.parse(jsonString);
-        console.log("INDEX", I_HATE_GLOBAL_VARIABLES, "TO", I_HATE_GLOBAL_VARIABLES + 100, "-ish");
+        console.log("INDEX", I_HATE_GLOBAL_VARIABLES, "TO", I_HATE_GLOBAL_VARIABLES + size, "-ish");
 
+        var eventsList = new EventsList();
         for (event of results) {
           var theEvent = new Event(event);
-          theEvent.add(function() {
-            // DO SOMETHING
-          })
+          eventsList.events.push(theEvent);
+          var performancesList = new PerformancesList();
           for (performance of event.performances) {
             performance.code = event.code;
             var thePerformance = new Performance(performance);
-            thePerformance.add(function() {
-              // DO SOMETHING
-            })
+            performancesList.performances.push(thePerformance);
+            // thePerformance.add(function() {
+            //   // DO SOMETHING
+            //})
           }
+          performancesList.add(function() {
+            console.log("Block of performances processed");
+          })
         }
+        eventsList.add(function() {
+          console.log("Block of events processed");
+        })
         if (results.length == 100) {
           console.log("GETTING NEXT PAGE");
           I_HATE_GLOBAL_VARIABLES += 100;
