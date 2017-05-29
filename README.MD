@@ -33,6 +33,7 @@ var keyFile = {
 module.exports = keyFile;
 ```
 
+-   Seed with `mongo < seeds.js`
 -   <http://localhost:3000/api/festival/events>: `GET` to retrieve all events, `POST` to add a new event
 -   <http://localhost:3000/api/festival/performances>: `GET` to retrieve all performances, `POST` to add a new performance
     dd a new performance
