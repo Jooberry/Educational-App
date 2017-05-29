@@ -1,4 +1,4 @@
-/*body {
+body {
   display: flex;
 }
 
@@ -14,11 +14,11 @@
 
 #main-map {
   height: 500px;
-  width: 100px;
+  width: 500px;
 }
 
 .map-position {
   position: fixed;
   display: block;
   z-index: 10;
-}*/
+}
