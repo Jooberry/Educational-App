@@ -144,7 +144,7 @@ UI.prototype = {
         return
       }
       if(opened === true){
-        heading.innerHTML = "Your saved Events"
+        heading.innerHTML = "Your Saved Events"
         opened = false
       }
 
