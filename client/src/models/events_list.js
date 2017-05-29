@@ -15,8 +15,6 @@ EventsList.prototype = {
       }
     });
     var jsonString = JSON.stringify(formattedEvents);
-    // console.log("\n\njsonString\ n\ n ");
-// console.log(jsonString);
     var request = new XMLHttpRequest();
     request.open('POST', "http://localhost:3000/api/festival/events");
     request.setRequestHeader('Content-Type', 'application/json');

@@ -46,7 +46,9 @@ RemoteFestivalAPIHelper.prototype = {
       request.setRequestHeader("Accept", "application/json");
 
       function onLoad() {
-        if (this.status !== 200) return;
+        if (this.status !== 200) {
+          return;
+        }
         var jsonString = this.responseText;
         var results = JSON.parse(jsonString);
         console.log("INDEX", I_HATE_GLOBAL_VARIABLES, "TO", I_HATE_GLOBAL_VARIABLES + size, "-ish");
@@ -60,9 +62,6 @@ RemoteFestivalAPIHelper.prototype = {
             performance.code = event.code;
             var thePerformance = new Performance(performance);
             performancesList.performances.push(thePerformance);
-            // thePerformance.add(function() {
-            //   // DO SOMETHING
-            //})
           }
           performancesList.add(function() {
             console.log("Block of performances processed");

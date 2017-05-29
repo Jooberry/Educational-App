@@ -14,6 +14,7 @@ var datesArray = [{
 
 var RemoteFestivalAPIHelper = require('../helpers/remote_festival_api_helper.js');
 var MapWrapper = require("../helpers/mapWrapper")
+var RequestHelper = require('../helpers/request_helper.js');
 
 var UI = function() {
   var infoText = document.getElementById('info-text');
@@ -100,7 +101,6 @@ UI.prototype = {
 
       logButton.addEventListener('click', function() {
         console.log("log button has been clicked");
-        var RequestHelper = require('../helpers/request_helper.js');
         var requestHelper = new RequestHelper();
 
         var url = "http://localhost:3000/api/festival"
