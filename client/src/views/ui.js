@@ -136,12 +136,20 @@ UI.prototype = {
     var heading = document.createElement('h3')
     heading.setAttribute("id", "saved-events-heading")
     heading.innerText = "Your Saved Events"
+    var opened = false
     heading.addEventListener("click", function(){
-      savedEventHelper.all(populateSavedEvents)
+      if(opened === false) {
+        savedEventHelper.all(populateSavedEvents)
+        opened = true
+        return
+      }
+      if(opened === true){
+        heading.innerHTML = "Your saved Events"
+        opened = false
+      }
+
     })
     savedEvents.appendChild(heading)
-    // var ul = document.createElement
-
   }
 
 };
