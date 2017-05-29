@@ -15,6 +15,16 @@ SavedEventQuery.prototype = {
       }
     })
   },
+  allPerformances: function(onQueryFinished){
+    MongoClient.connect(this.url, function(err, db){
+      if(db){
+        var collection = db.collection('savedperformances')
+        collection.find().toArray(function(err, docs){
+          onQueryFinished(docs)
+        })
+      }
+    })
+  },
 
   add: function(event, onQueryFinished){
     MongoClient.connect(this.url, function(err, db){

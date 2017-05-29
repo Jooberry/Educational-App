@@ -207,3 +207,9 @@ db.savedevents.insert([{
   "website": "http://www.edinburghjazzfestival.com/programme/artists/artist-information.html?artist_id=Ingrid+Lucia+Sings+Billie+Holiday+",
   "year": 2017
 }]);
+
+db.savedperformances.insert([{
+  "start": "2017-07-20 17:30:00",
+  "end": "2017-07-20 18:30:00",
+  "code": "55537b7f1d6a5131db0d794aa6a13174be9fc7d4-733900"
+}])

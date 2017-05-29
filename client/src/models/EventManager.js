@@ -24,11 +24,7 @@ EventManager.prototype = {
     var convertedDate = new Date(date);
     var dateinSeconds = Date.parse(convertedDate)
     return dateinSeconds
-  },
-
-  // all: function(){
-  //   var savedEvents = query.all()
-  // }
+  }
 
 }
 
