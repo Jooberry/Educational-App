@@ -140,6 +140,8 @@ UI.prototype = {
       end.innerText = "End time"
       tr.appendChild(end)
 
+      table.appendChild(tr)
+      
       for(event of events){
         var tr = document.createElement("tr")
         var title = document.createElement("td")
