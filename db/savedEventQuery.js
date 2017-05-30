@@ -33,10 +33,11 @@ SavedEventQuery.prototype = {
   },
   delete: function(id){
     MongoClient.connect(this.url, function(err, db){
-    if(db){
-      console.log({"_id": id})
-      var collection = db.collection('savedperformances')
-      collection.remove({"_id": id})
+      if(db){
+        console.log({"_id": id})
+        var collection = db.collection('savedperformances')
+        console.log(collection)
+        collection.remove({"_id": new MongoClient.ObjectId(id)})
       }
     })
   }
