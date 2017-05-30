@@ -19,13 +19,18 @@ var Timeline = function(events) {
     var pre = document.createElement("pre");
     var date = document.createElement("time");
     pre.innerText = event.start.split(" ").join("\n");
-    console.log(date.textContent);
     date.appendChild(pre);
     listItem.appendChild(date);
 
-    var cite = document.createElement("cite");
-    cite.textContent = event.title;
-    listItem.appendChild(cite);
+    var details = document.createElement("details");
+    var summary = document.createElement("summary");
+    summary.textContent = event.title;
+    var description = document.createElement("p");
+    description.textContent = "Blah blah blah";
+    details.appendChild(summary);
+    details.appendChild(description);
+    listItem.appendChild(details);
+
 
     list.appendChild(listItem);
     container.appendChild(list);
