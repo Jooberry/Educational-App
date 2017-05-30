@@ -1,6 +1,6 @@
 body {
   display: flex;
-}*/
+}
 
 #info-window {
   flex: 1;
@@ -11,7 +11,7 @@ body {
   position: absolute;
 }
 
-/*#main-map {
+#main-map {
   height: 500px;
   width: 500px;
 }
@@ -21,4 +21,6 @@ body {
   display: block;
   z-index: 10;
 }
+
+
 

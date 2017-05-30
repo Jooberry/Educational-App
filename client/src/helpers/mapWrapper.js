@@ -24,6 +24,7 @@ MapWrapper.prototype = {
         lng: event.latLng.lng()
       }
       this.addMarker(position);
+      this.markerLocations.push(position);
     }.bind(this));
   }
 }
