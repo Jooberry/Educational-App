@@ -18,6 +18,7 @@ RequestHelper.prototype = {
     request.open('POST', url);
     request.setRequestHeader('Content-Type', 'application/json');
     request.addEventListener('load', function() {
+      console.log(payload)
       if (this.status !== 200) return;
       var jsonString = this.responseText;
       var results = JSON.parse(jsonString);

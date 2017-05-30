@@ -30,40 +30,52 @@
 // ]
 
 // var descTerms = [
-//     { 
-//       key: "eventCode", 
+//     {
+//       key: "eventCode",
 //       label: "Event ID"
 //     },
-//     { 
+//     {
 //       key: "startTime",
 //       label: "Start Time"
 //     },
-//     { 
+//     {
 //       key: "description",
 //       label: "Description"
 //     }
 // ];
+var RequestHelper = require('../helpers/request_helper.js');
 
 var Timeline = function(events) {
+
+  // var savedEventHelper = new SavedEventApiHelper()
+  var requestHelper = new RequestHelper()
 
   var container = document.getElementById("timeline");
   var list = document.createElement("ol");
   list.className="timeline";
-  
+
 
   events.forEach(function(event) {
     var listItem = document.createElement("li");
-    
+
     var date = document.createElement("time");
     date.textContent = event.start;
     listItem.appendChild(date);
-    
+
     var cite = document.createElement("cite");
     cite.textContent = event.title;
     listItem.appendChild(cite);
 
     var addEventButton = document.createElement("button");
-    addEventButton.id = "add-button";
+    addEventButton.id = event._id;
+    addEventButton.addEventListener("click", function(){
+      console.log("making post request")
+      var jsonString = JSON.stringify([{"id": event._id, "code": event.code, "title": event.title, "start": event.start, "end": event.end}])
+      requestHelper.makePostRequest("http://localhost:3000/api/festival/saved/performances", function(){
+        console.log("post request has been made")
+      }, jsonString)
+    })
+    console.log(event._id);
     addEventButton.innerText = "Add Event";
     listItem.appendChild(addEventButton);
 

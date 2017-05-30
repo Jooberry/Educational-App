@@ -20,9 +20,17 @@ savedEventsRouter.get('/performances', function(req, res){
 
 savedEventsRouter.delete("/performances/remove/:id/", function(req, res){
   query.delete(req.params.id)
-  //is response needed here?
   console.log("deleting")
   res.json({"action": "was deleted"})
+})
+
+savedEventsRouter.post("/performances", function(req, res){
+  var payload = req.body;
+  console.log(payload)
+  query.addPerformance(payload, function(){
+    console.log(payload)
+  })
+  res.json({"added": payload})
 })
 
 module.exports = savedEventsRouter;
