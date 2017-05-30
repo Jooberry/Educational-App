@@ -16,7 +16,7 @@ body {
   position: fixed;
   left: 55%;
   width: 45%;
-  height: 605px;
+  height: 100vh;
   background-color: tomato;
 }
 
