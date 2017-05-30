@@ -9,12 +9,15 @@ var SavedEventApiHelper = function(){
 }
 
 SavedEventApiHelper.prototype = {
+
   all: function(onRequestComplete){
     this.requestHelper.makeRequest(this.url, onRequestComplete);
   },
+  
   allPerformances: function(onRequestComplete){
     this.requestHelper.makeRequest(this.url + "/performances", onRequestComplete)
   }
+
 }
 
 module.exports = SavedEventApiHelper

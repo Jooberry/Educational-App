@@ -8,12 +8,10 @@ var EventManager = function(){
 
 EventManager.prototype = {
   checkEventsCollision: function(savedEvents, newEvent){
-    //converting dates to seconds
-    var startNewEvent = this.dateConverter(newEvent.start)
+    var startNewEvent = this.dateConverter(newEvent[0].start)
     for(event of savedEvents){
       var startSavedEvent = this.dateConverter(event.start)
       var endSavedEvent = this.dateConverter(event.end)
-
       if(startNewEvent >= startSavedEvent  && startNewEvent < endSavedEvent ){
         return true;
       }
