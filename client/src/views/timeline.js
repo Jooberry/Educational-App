@@ -1,17 +1,3 @@
-// var descTerms = [
-//     {
-//       key: "eventCode",
-//       label: "Event ID"
-//     },
-//     {
-//       key: "startTime",
-//       label: "Start Time"
-//     },
-//     {
-//       key: "description",
-//       label: "Description"
-//     }
-// ];
 var RequestHelper = require('../helpers/request_helper.js');
 
 var TimelineHelper = require('../helpers/timeline_helper.js');
@@ -41,7 +27,10 @@ var Timeline = function(events) {
     cite.textContent = event.title;
     listItem.appendChild(cite);
 
-    var createAddEventReponseWindow = function(result){
+    list.appendChild(listItem);
+    container.appendChild(list);
+
+    var createAddEventResponseWindow = function(result){
       console.log(result)
         var p = document.createElement("p")
       if(result === true){
@@ -63,23 +52,6 @@ var Timeline = function(events) {
     })
     addEventButton.innerText = "Add Event";
     listItem.appendChild(addEventButton);
-
-    // var descList = document.createElement("dl");
-    // descTerms.forEach(function(term)  {
-    //   if (event[term.key]) {
-    //     var descTerm = document.createElement("dt");
-    //     descTerm.textContent = term.label;
-    //     descList.appendChild(descTerm);
-    //     var descElem = document.createElement("dd");
-    //     descElem.textContent = event[term.key];
-    //     descList.appendChild(descElem);
-    //     var descBreak = document.createElement("br");
-    //     descList.appendChild(descBreak);
-    //   }
-    // });
-    // listItem.appendChild(descList);
-    list.appendChild(listItem);
-    container.appendChild(list);
   });
 }
 
