@@ -55,6 +55,9 @@ RemoteFestivalAPIHelper.prototype = {
 
         var eventsList = new EventsList();
         for (event of results) {
+          // var latitude = event.longitude;
+          // event.longitude = event.latitude;
+          // event.latitude = latitude;
           var theEvent = new Event(event);
           eventsList.events.push(theEvent);
           var performancesList = new PerformancesList();
