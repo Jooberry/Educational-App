@@ -1,9 +1,11 @@
 var MapWrapper = function(container, coords, zoom) {
   var container = document.getElementById("main-map");
+  console.log('mapwrapper made')
   this.googleMap = new google.maps.Map(container, {
     center: coords,
     zoom: zoom
   });
+  this.markerLocations = [];
 }
 
 MapWrapper.prototype = {

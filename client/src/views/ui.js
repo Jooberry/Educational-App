@@ -53,12 +53,12 @@ UI.prototype = {
       };
       var mainMap = new MapWrapper(mapDiv, center, 13);
       mainMap.addMarker(center);
-      // mainMap.addClickEvent();
+      mainMap.addClickEvent();
     }
 
     setupFestivalAPI();
 
-    // setupMap();
+    setupMap();
   },
 
   setUpSavedEvents: function(){
