@@ -1,18 +1,17 @@
 /*body {
   display: flex;
-}
+}*/
 
 #info-window {
   flex: 1;
   height: 1500px;
-  width: 650px;
-  background: papayawhip;
+  width: 800px;
   top: 0%;
   right: 0%;
   position: absolute;
 }
 
-#main-map {
+/*#main-map {
   height: 500px;
   width: 100px;
 }
@@ -21,4 +20,5 @@
   position: fixed;
   display: block;
   z-index: 10;
-}*/
+}
+*/
