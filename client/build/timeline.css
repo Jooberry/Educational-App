@@ -37,8 +37,8 @@
     padding-left: 1em;
     padding-bottom: 1em;
 }
-.timeline li > summary {
-    font-size: 1.5em;
+.timeline li > details, summary {
+    font-size: 1.25em;
     line-height: 1em;
     padding-bottom: 0.5em;
 }
