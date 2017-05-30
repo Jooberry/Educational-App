@@ -9,7 +9,10 @@ var app = function() {
   // This is where I call in Timeline
   requestHelper.makeRequest("http://localhost:3000/api/festival/performances", Timeline);
 
-  var displayMap = new DisplayMap();
+ 
+ requestHelper.makeRequest("http://localhost:3000/api/festival/events", function(results){
+  new DisplayMap(results);
+ });
 }
 
 window.addEventListener('load', app);

@@ -10,8 +10,8 @@ var MapWrapper = function(container, coords, zoom) {
 
 MapWrapper.prototype = {
   addMarker: function(coords) {
-    console.log("added marker");
-    console.log(coords);
+    // console.log("added marker");
+    // console.log(coords);
     var marker = new google.maps.Marker({
       animation: google.maps.Animation.DROP,
       position: coords,

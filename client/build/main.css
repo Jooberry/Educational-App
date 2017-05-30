@@ -30,4 +30,5 @@ body {
 
 #main-map {
   height: 45%;
+  border-radius: 25px;
 }
