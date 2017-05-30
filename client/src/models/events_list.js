@@ -6,6 +6,7 @@ EventsList.prototype = {
   add: function(onRequestComplete) {
     var formattedEvents = this.events.map(function(event) {
       return {
+        
         code: event.code,
         title: event.title,
         description: event.description,

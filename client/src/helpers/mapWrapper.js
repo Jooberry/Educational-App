@@ -5,6 +5,7 @@ var MapWrapper = function(container, coords, zoom) {
     center: coords,
     zoom: zoom
   });
+  this.markerLocations = [];
 }
 
 MapWrapper.prototype = {

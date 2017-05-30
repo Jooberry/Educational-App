@@ -9,6 +9,7 @@ var UI = function() {
   this.setUpSavedEvents()
 
   counter = 0;
+
 };
 
 UI.prototype = {
@@ -88,7 +89,7 @@ UI.prototype = {
         var tr = document.createElement("tr")
         var title = document.createElement("td")
         // title.innerText = event.getTitle();
-        title.innerText = event.code
+        title.innerText = event.title
         tr.appendChild(title)
 
         var start = document.createElement("td")

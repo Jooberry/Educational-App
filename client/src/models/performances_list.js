@@ -8,7 +8,8 @@ PerformancesList.prototype = {
       return {
         code: performance.code,
         start: performance.start,
-        end: performance.end
+        end: performance.end,
+        title: performance.title
       }
     });
     var jsonString = JSON.stringify(formattedEvents);
