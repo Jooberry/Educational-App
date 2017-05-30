@@ -2,9 +2,9 @@
     list-style-type: none;
 }
 
-.timeline li > time + time:before {
+/*.timeline li > time + time:before {
     content: "-";
-}
+}*/
 
 /*.timeline li > time:last-of-type:after {
     content: ": ";
@@ -22,10 +22,11 @@
     position: relative;
 }
 
-.timeline li > time {
+.timeline li > pre, time {
     position: absolute;
-    left: -6.17em;
-    top: 0.3em;
+    font-size: 16px;
+    left: -6em;
+    top: 0.4em;
 }
 .timeline li > time + time {
     top: 1em;
@@ -53,17 +54,22 @@
     margin-right: 10%;
 }
 
-.timeline li > time:first-of-type:after {
+.timeline li > pre, time:first-of-type:after {
     content: "\2022";
-    font-size: 3em;
+    font-size: 3.5em;
     line-height: 0.4em;
     position: absolute;
-    right: -0.65em;
-    top: -0.01em;
+    right: -0.54em;
+    top: -0.08em;
 }
 
 ol, ul {
     list-style: none;
     margin: 12em;
     margin-top: 6em;
+}
+
+.timeline {
+    margin: 3em;
+    margin-left: 8em;
 }

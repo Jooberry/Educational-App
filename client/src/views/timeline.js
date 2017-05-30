@@ -54,8 +54,11 @@ var Timeline = function(events) {
   events.forEach(function(event) {
     var listItem = document.createElement("li");
     
+    var pre = document.createElement("pre");
     var date = document.createElement("time");
-    date.textContent = event.start;
+    pre.innerText = event.start.split(" ").join("\n");
+    console.log(date.textContent);
+    date.appendChild(pre);
     listItem.appendChild(date);
     
     var cite = document.createElement("cite");
