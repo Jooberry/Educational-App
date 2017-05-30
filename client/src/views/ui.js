@@ -91,7 +91,7 @@ UI.prototype = {
         button.addEventListener("click", function(){
           console.log(performance)
           requestHelper.makeDeleteRequest("http://localhost:3000/api/festival/saved/performances/remove/" + performance._id, function(){
-            console.log("making post request")
+            console.log("making delete request")
           })
         })
         var tr = document.createElement("tr")

@@ -66,16 +66,26 @@ var Timeline = function(events) {
     cite.textContent = event.title;
     listItem.appendChild(cite);
 
+    var createAddEventReponseWindow = function(result){
+      console.log(result)
+        var p = document.createElement("p")
+      if(result === true){
+        p.innerText = "event has been added"
+      }
+      else if(result === false){
+        p.innerText = "event cannot be added"
+      }
+      element = document.getElementById("saved-events-message")
+      element.appendChild(p)
+    }
     var addEventButton = document.createElement("button");
     addEventButton.id = event._id;
     addEventButton.addEventListener("click", function(){
       console.log("making post request")
       var jsonString = JSON.stringify([{"id": event._id, "code": event.code, "title": event.title, "start": event.start, "end": event.end}])
-      requestHelper.makePostRequest("http://localhost:3000/api/festival/saved/performances", function(){
-        console.log("post request has been made")
-      }, jsonString)
+      requestHelper.makePostRequest("http://localhost:3000/api/festival/saved/performances", createAddEventReponseWindow,
+      jsonString)
     })
-    console.log(event._id);
     addEventButton.innerText = "Add Event";
     listItem.appendChild(addEventButton);
 
