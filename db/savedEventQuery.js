@@ -1,20 +1,15 @@
 var MongoClient = require("mongodb")
+var FestivalQuery = require("./festival_query_helper")
+
+var festivalQuery = new FestivalQuery();
+
+
 
 var SavedEventQuery = function(){
   this.url = "mongodb://localhost:27017/festival"
 }
 
 SavedEventQuery.prototype = {
-//   all: function(onQueryFinished){
-//     MongoClient.connect(this.url, function(err, db){
-//       if(db){
-//         var collection = db.collection('savedevents')
-//         collection.find().toArray(function(err, docs){
-//           onQueryFinished(docs)
-//         })
-//       }
-//     })
-//   },
   allPerformances: function(onQueryFinished){
     MongoClient.connect(this.url, function(err, db){
       if(db){
@@ -25,38 +20,26 @@ SavedEventQuery.prototype = {
       }
     })
   },
-
-  // add: function(event, onQueryFinished){
-  //   MongoClient.connect(this.url, function(err, db){
-  //     if(db){
-  //       var collection = db.collection('savedevents')
-  //       collection.insert(events);
-  //       collection.find().toArray(function(err, docs){
-  //         onQueryFinished(docs)
-  //       })
-  //     }
-  //   })
-  // },
+  addPerformance: function(performance, onQueryFinished){
+    MongoClient.connect(this.url, function(err, db){
+      if(db){
+        var collection = db.collection('savedperformances')
+        collection.insert(performance);
+        collection.find().toArray(function(err, docs){
+          onQueryFinished(docs)
+        })
+      }
+    })
+  },
   delete: function(id){
     MongoClient.connect(this.url, function(err, db){
     if(db){
+      console.log({"_id": id})
       var collection = db.collection('savedperformances')
       collection.remove({"_id": id})
       }
     })
   }
 }
-  //needs some thought
-//   findTitle: function(code, onQueryFinished){
-//     MongoClient.connect(this.url, function(err, db){
-//       if(db){
-//         var collection = db.collection('savedevents')
-//         collection.find({"code": code}).toString(function(err, docs){
-//           onQueryFinished(docs)
-//         })
-//       }
-//     })
-//   }
-// }
 
 module.exports = SavedEventQuery

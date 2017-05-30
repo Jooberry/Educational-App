@@ -1,6 +1,6 @@
 var RemoteFestivalAPIHelper = require('../helpers/remote_festival_api_helper.js');
 var SavedEventApiHelper = require('../helpers/saved_event_api_helper.js')
-var MapWrapper = require("../helpers/mapWrapper")
+// var MapWrapper = require("../helpers/mapWrapper")
 var RequestHelper = require('../helpers/request_helper.js');
 
 var UI = function() {
@@ -44,25 +44,11 @@ UI.prototype = {
         });
       });
     }
-
-    var setupMap = function() {
-      var mapDiv = document.getElementById('main-map');
-      var center = {
-        lat: 55.953251,
-        lng: -3.188267
-      };
-      var mainMap = new MapWrapper(mapDiv, center, 13);
-      mainMap.addMarker(center);
-      mainMap.addClickEvent();
-    }
-
     setupFestivalAPI();
-
-    setupMap();
   },
 
   setUpSavedEvents: function(){
-    var savedEvents = document.getElementById("saved-events")
+    var savedEvents = document.getElementById("saved-events-message")
     var savedEventHelper = new SavedEventApiHelper()
     var requestHelper = new RequestHelper()
 
@@ -91,7 +77,7 @@ UI.prototype = {
         button.addEventListener("click", function(){
           console.log(performance)
           requestHelper.makeDeleteRequest("http://localhost:3000/api/festival/saved/performances/remove/" + performance._id, function(){
-            console.log("making post request")
+            console.log("making delete request")
           })
         })
         var tr = document.createElement("tr")
