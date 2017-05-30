@@ -1,34 +1,3 @@
-// var events = [
-//   {
-//     date: '2017-07-23',
-//     startTime: '20:30',
-//     title: 'Jazz: Ultimate Classics',
-//     description: 'Pretty great',
-//     eventCode: 'F1'
-//   },
-//   {
-//     date: '2017-07-24',
-//     startTime: '20:45',
-//     title: 'Continuing to Jazz',
-//     description: 'I wanted to continue to jazz',
-//     eventCode: 'F2'
-//   },
-//   {
-//     date: '2017-07-26',
-//     startTime: '19:30',
-//     title: 'Tired of Coding Jazz',
-//     description: 'Made me lethargic',
-//     eventCode: 'F3'
-//   },
-//   {
-//     date: '2017-07-21',
-//     startTime: '19:45',
-//     title: 'Group Jazz Time',
-//     description: 'Jazz in a group',
-//     eventCode: 'F4'
-//   }
-// ]
-
 // var descTerms = [
 //     { 
 //       key: "eventCode", 
@@ -44,14 +13,19 @@
 //     }
 // ];
 
+var TimelineHelper = require('../helpers/timeline_helper.js');
+
 var Timeline = function(events) {
+
+  var timelineHelper = new TimelineHelper();
 
   var container = document.getElementById("timeline");
   var list = document.createElement("ol");
   list.className="timeline";
   
+  var sortedEvents = timelineHelper.sortByDate(events);
 
-  events.forEach(function(event) {
+  sortedEvents.forEach(function(event) {
     var listItem = document.createElement("li");
     
     var pre = document.createElement("pre");
@@ -87,9 +61,6 @@ var Timeline = function(events) {
     list.appendChild(listItem);
     container.appendChild(list);
   });
-
-
-
 }
 
 module.exports = Timeline;

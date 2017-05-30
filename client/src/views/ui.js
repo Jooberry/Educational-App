@@ -6,7 +6,7 @@ var RequestHelper = require('../helpers/request_helper.js');
 var UI = function() {
 
   this.render();
-  this.setUpSavedEvents()
+  this.setUpSavedEvents();
 
   counter = 0;
 
