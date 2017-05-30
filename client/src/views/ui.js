@@ -64,6 +64,7 @@ UI.prototype = {
   setUpSavedEvents: function(){
     var savedEvents = document.getElementById("saved-events")
     var savedEventHelper = new SavedEventApiHelper()
+    var requestHelper = new RequestHelper()
 
     var populateSavedEvents = function(events){
       var heading = document.getElementById("saved-events-heading")
@@ -85,21 +86,28 @@ UI.prototype = {
 
       table.appendChild(tr)
 
-      for(event of events){
+      for(performance of events){
+        var button = document.createElement("button")
+        button.addEventListener("click", function(){
+          console.log(performance)
+          requestHelper.makeDeleteRequest("http://localhost:3000/api/festival/saved/performances/remove/" + performance._id, function(){
+            console.log("making post request")
+          })
+        })
         var tr = document.createElement("tr")
         var title = document.createElement("td")
-        // title.innerText = event.getTitle();
-        title.innerText = event.title
+        title.innerText = performance.title
         tr.appendChild(title)
 
         var start = document.createElement("td")
-        start.innerText = event.start
+        start.innerText = performance.start
         tr.appendChild(start)
 
         var end = document.createElement("td")
-        end.innerText = event.end
+        end.innerText = performance.end
         tr.appendChild(end)
 
+        tr.appendChild(button)
         table.appendChild(tr)
       }
       heading.appendChild(table)

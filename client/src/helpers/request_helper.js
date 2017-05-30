@@ -24,7 +24,19 @@ RequestHelper.prototype = {
       onRequestComplete(results);
     });
     request.send(payload);
+  },
+  makeDeleteRequest: function(url, onRequestComplete) {
+    var request = new XMLHttpRequest();
+    request.open('DELETE', url);
+    request.addEventListener('load', function() {
+      if (this.status !== 200) return;
+      var jsonString = this.responseText;
+      var results = JSON.parse(jsonString);
+      onRequestComplete(results);
+    });
+    request.send();
   }
+
 };
 
 module.exports = RequestHelper;
