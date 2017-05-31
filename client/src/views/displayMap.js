@@ -1,5 +1,7 @@
 var MapWrapper = require("../helpers/mapWrapper")
 var RequestHelper = require('../helpers/request_helper.js');
+var requestHelper = new RequestHelper();
+
 var DisplayMap = function(results){
 
   var mainMap;
@@ -17,7 +19,22 @@ var DisplayMap = function(results){
     mainMap.addClickEvent();
   }
 
+  var addAllMarkers = function(){
+    var allMarkers = []
+    requestHelper.makeRequest("http://localhost:3000/api/festival/events", function(results){
+      for(var event of results){
+        mainMap.addMarker({lat: event.latitude, lng: event.longitude})
+        allMarkers.push(event);
+      }
+      console.log("++++All Markers Below+++++")
+      console.log(allMarkers);
+    })
+     
+
+  }
+
   setupMap();
+  addAllMarkers(); 
 
   var eventCoords = {};
   for (event of results){
@@ -34,7 +51,6 @@ var DisplayMap = function(results){
       console.log(eventCoords)
 
      var url = "http://localhost:3000/api/festival/saved/performances"
-     var requestHelper = new RequestHelper();
      requestHelper.makeRequest(url, function(results) {
        console.log("hitting saved performances for mapping purposes");
        console.log(results);
@@ -46,7 +62,7 @@ var DisplayMap = function(results){
 
 
         mainMap.markerLocations.push(marker);
-        
+
 
         // console.log(mainMap.markerLocations);
     //add an event marker to the mainMap object
