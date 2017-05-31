@@ -6,7 +6,7 @@ var Timeline = function(events) {
 
   this.events = events;
   this.populateTimeline();
-  this.createAddEventResponseWindow();
+  // this.createAddEventResponseWindow();
 
 };
 
@@ -54,21 +54,23 @@ Timeline.prototype = {
           "start": event.start,
           "end": event.end
         }])
-        requestHelper.makePostRequest("http://localhost:3000/api/festival/saved/performances", function(event){
-          if(event.value == false){
+        requestHelper.makePostRequest("http://localhost:3000/api/festival/saved/performances", function(event) {
+          if (event.value == false) {
             window.alert("Sorry, you are already attending an event at this time")
           }
         })
-      addEventButton.innerText = "Add Event";
-      listItem.appendChild(addEventButton);
+        addEventButton.innerText = "Add Event";
+        listItem.appendChild(addEventButton);
 
-      summary.addEventListener('click', function() {
-        var image = document.getElementById("url");
-        image.setAttribute("src", event.image);
-      });
-    }
-  })
+        summary.addEventListener('click', function() {
+          var image = document.getElementById("url");
+          image.setAttribute("src", event.image);
+        });
+      })
+    })
+  }
 }
-};
+
+
 
 module.exports = Timeline;
