@@ -43,7 +43,7 @@ RemoteFestivalAPIHelper.prototype = {
     function getAllEvents() {
       var request = new XMLHttpRequest();
       request.open('GET', url);
-      request.setRequestHeader("Accept", "application/json");
+      request.setRequestHeader("Accept", "application/json;ver=2.0");
 
       function onLoad() {
         if (this.status !== 200) {
@@ -55,30 +55,23 @@ RemoteFestivalAPIHelper.prototype = {
 
         var eventsList = new EventsList();
         for (event of results) {
-          // var latitude = event.longitude;
-          // event.longitude = event.latitude;
-          // event.latitude = latitude;
           var theEvent = new Event(event);
           eventsList.events.push(theEvent);
           var performancesList = new PerformancesList();
           var image;
           for (var imageTypes in event.images) {
+            // console.log("000 = image = 000");
+            // console.log(image);
             if (event.images[imageTypes].type === "hero") {
               var url = "http:" + event.images[imageTypes].versions.original.url
               image = url;
-
-              console.log("111 = image = 111");
-              console.log(image);
             }
           }
           for (performance of event.performances) {
             performance.code = event.code;
             performance.title = event.title;
-            console.log("222 = image = 222");
-            console.log(image);
             performance.image = image;
             performance.description = event.description;
-            console.log(performance);
             var thePerformance = new Performance(performance);
             performancesList.performances.push(thePerformance);
           }
