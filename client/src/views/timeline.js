@@ -54,6 +54,12 @@ Timeline.prototype = {
       })
       addEventButton.innerText = "Add Event";
       listItem.appendChild(addEventButton);
+
+      var onTitleClick = document.getElementsByTagName("summary");
+      onTitleClick.addEventListener('click', function() {
+
+      });
+
     });
   },
 
