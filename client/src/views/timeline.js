@@ -56,6 +56,7 @@ var Timeline = function(events) {
     }
     var addEventButton = document.createElement("button");
     addEventButton.id = event._id;
+    
     addEventButton.addEventListener("click", function(){
       console.log("making post request")
       var jsonString = JSON.stringify([{"id": event._id, "code": event.code, "title": event.title, "start": event.start, "end": event.end}])
