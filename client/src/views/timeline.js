@@ -6,7 +6,6 @@ var Timeline = function(events) {
 
   this.events = events;
   this.populateTimeline();
-  this.createAddEventResponseWindow();
 
 };
 
@@ -69,18 +68,6 @@ Timeline.prototype = {
       });
 
     });
-  },
-
-  createAddEventResponseWindow: function(result) {
-    // console.log(result)
-    var p = document.createElement("p")
-    if (result === true) {
-      p.innerText = "event has been added"
-    } else if (result === false) {
-      p.innerText = "event cannot be added"
-    }
-    element = document.getElementById("saved-events-message")
-    element.appendChild(p)
   }
 
 };

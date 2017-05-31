@@ -6,21 +6,21 @@ body {
 }
 
 #info-window {
-  width: 55%;
+  width: 60%;
   position: absolute;
-  background-color: dodgerblue;
+  background-image: url("https://t3.ftcdn.net/jpg/01/13/14/22/240_F_113142227_5zd5Fwi2TdUIqvJHJ56s11Knmh0Wt1Bo.jpg");
 }
 
 #container {
   display: block;
   position: fixed;
-  left: 55%;
-  width: 45%;
+  left: 60%;
+  width: 40%;
   height: 100vh;
 }
 
 #saved-events-message {
-  height: 15%;
+  height: 20%;
   overflow: scroll;
   background-color: tomato;
 }
@@ -33,5 +33,5 @@ body {
 }
 
 #main-map {
-  height: 45%;
+  height: 40%;
 }
