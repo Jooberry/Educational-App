@@ -3,12 +3,12 @@ body {
   flex-wrap: column;
   width: 100%;
   height: 100%;
+  background-image: url("https://t3.ftcdn.net/jpg/01/13/14/22/240_F_113142227_5zd5Fwi2TdUIqvJHJ56s11Knmh0Wt1Bo.jpg");
 }
 
 #info-window {
   width: 60%;
   position: absolute;
-  background-image: url("https://t3.ftcdn.net/jpg/01/13/14/22/240_F_113142227_5zd5Fwi2TdUIqvJHJ56s11Knmh0Wt1Bo.jpg");
 }
 
 #container {
@@ -22,7 +22,6 @@ body {
 #saved-events-message {
   height: 20%;
   overflow: scroll;
-  background-color: tomato;
 }
 
 #image {
