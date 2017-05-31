@@ -1,12 +1,14 @@
 var MapWrapper = require("../helpers/mapWrapper")
 var RequestHelper = require('../helpers/request_helper.js');
+
 var requestHelper = new RequestHelper();
 
 var DisplayMap = function(results){
 
+
   var mainMap;
 
-  console.log("display map has been called")
+  // console.log("display map has been called")
 
   var setupMap = function() {
     var mapDiv = document.getElementById('main-map');
@@ -73,4 +75,6 @@ var DisplayMap = function(results){
    }
 
 
-   module.exports = DisplayMap;
+
+
+module.exports = DisplayMap;

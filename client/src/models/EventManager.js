@@ -17,6 +17,8 @@ EventManager.prototype = {
       }
     }
     return false;
+
+
   },
   dateConverter: function(date){
     var convertedDate = new Date(date);

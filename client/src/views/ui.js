@@ -15,7 +15,7 @@ var UI = function() {
 UI.prototype = {
 
   render: function() {
-    console.log("The UI has been asked to render");
+    // console.log("The UI has been asked to render");
 
     var setupFestivalAPI = function() {
       var populateButton = document.querySelector("#info-window #populate");
@@ -77,7 +77,9 @@ UI.prototype = {
         button.addEventListener("click", function(){
           console.log(performance)
           requestHelper.makeDeleteRequest("http://localhost:3000/api/festival/saved/performances/remove/" + performance._id, function(){
-            console.log("making delete request")
+            // heading.innerHTML = "Your saved events"
+            // populateSavedEvents(events)
+
           })
         })
         

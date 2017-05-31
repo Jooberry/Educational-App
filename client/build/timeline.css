@@ -37,8 +37,8 @@
     padding-left: 1em;
     padding-bottom: 1em;
 }
-.timeline li > cite {
-    font-size: 1.5em;
+.timeline li > details, summary {
+    font-size: 1.25em;
     line-height: 1em;
     padding-bottom: 0.5em;
 }
@@ -72,4 +72,5 @@ ol, ul {
 .timeline {
     margin: 3em;
     margin-left: 8em;
+    margin-top: 1em;
 }

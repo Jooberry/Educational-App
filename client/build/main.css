@@ -31,19 +31,23 @@ landing-page{
   position: fixed;
   left: 55%;
   width: 45%;
-  height: 605px;
-  background-color: tomato;
+  height: 100vh;
 }
 
 #saved-events-message {
   height: 15%;
+  overflow: scroll;
+  background-color: tomato;
 }
 
 #image {
   height: 40%;
+  background-size: 100% 100%;
+  background-position: center;
 }
 
 #main-map {
   height: 45%;
+
   border-radius: 25px;
 }
