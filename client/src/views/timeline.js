@@ -58,14 +58,17 @@ Timeline.prototype = {
           if(event.value == false){
             window.alert("Sorry, you are already attending an event at this time")
           }
-        },
-          jsonString)
-      })
+        })
       addEventButton.innerText = "Add Event";
       listItem.appendChild(addEventButton);
-    })
-  }
 
+      summary.addEventListener('click', function() {
+        var image = document.getElementById("url");
+        image.setAttribute("src", event.image);
+      });
+    }
+  })
+}
 };
 
 module.exports = Timeline;
