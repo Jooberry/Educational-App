@@ -27,7 +27,8 @@ Timeline.prototype = {
       var listItem = document.createElement("li");
       var pre = document.createElement("pre");
       var date = document.createElement("time");
-      pre.innerText = event.start.split(" ").join("\n");
+      var modifiedDate = event.start.substr(0, 16);
+      pre.innerText = modifiedDate.split(" ").join("\n");
       date.appendChild(pre);
       listItem.appendChild(date);
 

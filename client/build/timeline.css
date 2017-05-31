@@ -56,6 +56,7 @@
 
 .timeline li > pre, time:first-of-type:after {
     content: "\2022";
+    color: hotpink;
     font-size: 3.5em;
     line-height: 0.4em;
     position: absolute;
