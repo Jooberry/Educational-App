@@ -80,6 +80,7 @@ UI.prototype = {
             console.log("making delete request")
           })
         })
+        
         var tr = document.createElement("tr")
         var title = document.createElement("td")
         title.innerText = performance.title
