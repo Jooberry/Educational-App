@@ -44,12 +44,15 @@ var DisplayMap = function(results){
 
         var marker = mainMap.addMarker(coords);
 
+
         mainMap.markerLocations.push(marker);
+        
+
         // console.log(mainMap.markerLocations);
     //add an event marker to the mainMap object
   }
-}
-);
+
+});
 
    }
 

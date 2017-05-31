@@ -15,6 +15,7 @@
 var RequestHelper = require('../helpers/request_helper.js');
 
 var TimelineHelper = require('../helpers/timeline_helper.js');
+var DisplayMap = require('./DisplayMap.js');
 
 var Timeline = function(events) {
 
@@ -58,8 +59,17 @@ var Timeline = function(events) {
     addEventButton.addEventListener("click", function(){
       console.log("making post request")
       var jsonString = JSON.stringify([{"id": event._id, "code": event.code, "title": event.title, "start": event.start, "end": event.end}])
-      requestHelper.makePostRequest("http://localhost:3000/api/festival/saved/performances", createAddEventReponseWindow,
-      jsonString)
+      requestHelper.makePostRequest(
+        "http://localhost:3000/api/festival/saved/performances", 
+        // code below allows marker to appear on map after click "add event"
+        //without page refresh, needs refactor.
+        function() {
+          requestHelper.makeRequest("http://localhost:3000/api/festival/events", function(results){
+           new DisplayMap(results);
+          });
+        },
+        jsonString
+      )
     })
     addEventButton.innerText = "Add Event";
     listItem.appendChild(addEventButton);
