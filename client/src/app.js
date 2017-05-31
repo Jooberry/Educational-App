@@ -7,8 +7,9 @@ var app = function() {
   new UI();
   var requestHelper = new RequestHelper();
   // This is where I call in Timeline
-  requestHelper.makeRequest("http://localhost:3000/api/festival/performances", Timeline);
-
+  requestHelper.makeRequest("http://localhost:3000/api/festival/performances", function(events) {
+    new Timeline(events);
+  });
   var displayMap = new DisplayMap();
 }
 
