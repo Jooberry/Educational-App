@@ -43,7 +43,7 @@ RemoteFestivalAPIHelper.prototype = {
     function getAllEvents() {
       var request = new XMLHttpRequest();
       request.open('GET', url);
-      request.setRequestHeader("Accept", "application/json");
+      request.setRequestHeader("Accept", "application/json;ver=2.0");
 
       function onLoad() {
         if (this.status !== 200) {
@@ -51,19 +51,26 @@ RemoteFestivalAPIHelper.prototype = {
         }
         var jsonString = this.responseText;
         var results = JSON.parse(jsonString);
-        console.log("INDEX", I_HATE_GLOBAL_VARIABLES, "TO", I_HATE_GLOBAL_VARIABLES + size, "-ish");
+        // console.log("INDEX", I_HATE_GLOBAL_VARIABLES, "TO", I_HATE_GLOBAL_VARIABLES + size, "-ish");
 
         var eventsList = new EventsList();
         for (event of results) {
-          // var latitude = event.longitude;
-          // event.longitude = event.latitude;
-          // event.latitude = latitude;
           var theEvent = new Event(event);
           eventsList.events.push(theEvent);
           var performancesList = new PerformancesList();
+          var image;
+          for (var imageTypes in event.images) {
+            // console.log("000 = image = 000");
+            // console.log(image);
+            if (event.images[imageTypes].type === "hero") {
+              var url = "http:" + event.images[imageTypes].versions.original.url
+              image = url;
+            }
+          }
           for (performance of event.performances) {
             performance.code = event.code;
             performance.title = event.title;
+            performance.image = image;
             performance.description = event.description;
             var thePerformance = new Performance(performance);
             performancesList.performances.push(thePerformance);
@@ -76,7 +83,7 @@ RemoteFestivalAPIHelper.prototype = {
           console.log("Block of events processed");
         })
         if (results.length == 100) {
-          console.log("GETTING NEXT PAGE");
+          // console.log("GETTING NEXT PAGE");
           I_HATE_GLOBAL_VARIABLES += 100;
           var helper = new RemoteFestivalAPIHelper(I_HATE_GLOBAL_VARIABLES);
           helper.populateLocalDatabase();
