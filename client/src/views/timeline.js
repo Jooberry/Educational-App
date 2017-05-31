@@ -55,14 +55,13 @@ Timeline.prototype = {
           "start": event.start,
           "end": event.end
         }])
-        requestHelper.makePostRequest("http://localhost:3000/api/festival/saved/performances", createAddEventResponseWindow,
+        requestHelper.makePostRequest("http://localhost:3000/api/festival/saved/performances", function(){},
           jsonString)
       })
       addEventButton.innerText = "Add Event";
       listItem.appendChild(addEventButton);
 
       summary.addEventListener('click', function() {
-        console.log(event.image);
         var image = document.getElementById("url");
         image.setAttribute("src", event.image);
       });
