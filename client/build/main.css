@@ -5,7 +5,22 @@ body {
   height: 100%;
   background-image: url("https://t3.ftcdn.net/jpg/01/13/14/22/240_F_113142227_5zd5Fwi2TdUIqvJHJ56s11Knmh0Wt1Bo.jpg");
 }
+/*
+landing-page{
+  position: absolute;
+  width:100%;
+  height:100%;
+  background-image: url("./client/build/images/edinburghbackground.jpg");
+  background-size: 80px 60px;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
 
+#main-content-container{
+  position: absolute;
+  z-index: 2;
+}
+*/
 #info-window {
   width: 60%;
   position: absolute;
@@ -22,15 +37,23 @@ body {
 #saved-events-message {
   height: 20%;
   overflow: scroll;
+  background-color: white;
+  border-radius: 25px;
+  margin: 2%;
+  padding: 8px;
 }
 
 #image {
-  height: 40%;
+  margin: 2%;
+  height: 35%;
   background-image: url("https://www.hubtickets.co.uk/ArticleMedia/Images/Events/Jazz/EJBF17/EJF%201100x400.png");
   background-size: 100% 100%;
   background-position: center;
+  border-radius: 25px;
 }
 
 #main-map {
-  height: 40%;
+  margin: 2%;
+  height: 37%;
+  border-radius: 25px;
 }

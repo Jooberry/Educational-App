@@ -78,9 +78,12 @@ UI.prototype = {
         button.addEventListener("click", function(){
           console.log(performance)
           requestHelper.makeDeleteRequest("http://localhost:3000/api/festival/saved/performances/remove/" + performance._id, function(){
-            console.log("making delete request")
+            // heading.innerHTML = "Your saved events"
+            // populateSavedEvents(events)
+
           })
         })
+        
         var tr = document.createElement("tr")
         var title = document.createElement("td")
         title.innerText = performance.title

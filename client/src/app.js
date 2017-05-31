@@ -9,11 +9,16 @@ var app = function() {
 
   var requestHelper = new RequestHelper();
 
+ 
+ requestHelper.makeRequest("http://localhost:3000/api/festival/events", function(results){
+  new DisplayMap(results);
+ });
+
   requestHelper.makeRequest("http://localhost:3000/api/festival/performances", function(events) {
     new Timeline(events);
   });
   
-  var displayMap = new DisplayMap();
+
 }
 
 window.addEventListener('load', app);
