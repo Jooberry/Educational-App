@@ -4,12 +4,15 @@ var DisplayMap = require ('./views/displayMap')
 var RequestHelper = require("./helpers/request_helper.js");
 
 var app = function() {
+
   new UI();
+
   var requestHelper = new RequestHelper();
-  // This is where I call in Timeline
+
   requestHelper.makeRequest("http://localhost:3000/api/festival/performances", function(events) {
     new Timeline(events);
   });
+  
   var displayMap = new DisplayMap();
 }
 

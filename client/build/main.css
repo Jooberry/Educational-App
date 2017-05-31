@@ -17,16 +17,18 @@ body {
   left: 55%;
   width: 45%;
   height: 100vh;
-  background-color: tomato;
 }
 
 #saved-events-message {
   height: 15%;
   overflow: scroll;
+  background-color: tomato;
 }
 
 #image {
   height: 40%;
+  background-image: url("https://www.hubtickets.co.uk/ArticleMedia/Images/Events/Jazz/EJBF17/EJF%201100x400.png");
+  background-size: 100% 100%;
 }
 
 #main-map {
