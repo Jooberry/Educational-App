@@ -62,8 +62,9 @@ Timeline.prototype = {
       listItem.appendChild(addEventButton);
 
       summary.addEventListener('click', function() {
-        var image = document.getElementById("url");
-        image.setAttribute("src", event.image);
+        var image = document.getElementById("image");
+        var edit = image.style.backgroundImage = 'url(' + event.image + ')';
+        console.log(edit)
       });
 
     });
