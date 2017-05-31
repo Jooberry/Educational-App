@@ -32,14 +32,12 @@ savedEventsRouter.post("/performances", function(req, res){
     var collision = eventManager.checkEventsCollision(docs, payload)
     if (collision === true) {(
       res.json({value: false})
-      // console.log(res.json);
     )}
     else if ( collision === false ){
       console.log(this)
       query.addPerformance(payload, function(){
       })
       res.json({value: true})
-      // console.log(res.json);
     }
   })
 })

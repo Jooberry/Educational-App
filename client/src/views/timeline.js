@@ -14,7 +14,6 @@ Timeline.prototype = {
 
   populateTimeline: function() {
     var timelineHelper = new TimelineHelper();
-    // var savedEventHelper = new SavedEventApiHelper()
     var requestHelper = new RequestHelper();
 
     var container = document.getElementById("timeline");
@@ -65,18 +64,6 @@ Timeline.prototype = {
       addEventButton.innerText = "Add Event";
       listItem.appendChild(addEventButton);
     })
-  },
-
-  createAddEventResponseWindow: function(result) {
-    // console.log(result)
-    var p = document.createElement("p")
-    if (result === true) {
-      p.innerText = "event has been added"
-    } else if (result === false) {
-      p.innerText = "event cannot be added"
-    }
-    element = document.getElementById("saved-events-message")
-    element.appendChild(p)
   }
 
 };
