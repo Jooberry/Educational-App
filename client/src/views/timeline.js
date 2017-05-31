@@ -61,9 +61,10 @@ Timeline.prototype = {
       addEventButton.innerText = "Add Event";
       listItem.appendChild(addEventButton);
 
-      var onTitleClick = document.getElementsByTagName("summary");
-      onTitleClick.addEventListener('click', function() {
-
+      summary.addEventListener('click', function() {
+        console.log(event.image);
+        var image = document.getElementById("url");
+        image.setAttribute("src", event.image);
       });
 
     });
