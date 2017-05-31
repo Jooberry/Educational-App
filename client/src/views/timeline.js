@@ -55,12 +55,16 @@ Timeline.prototype = {
           "start": event.start,
           "end": event.end
         }])
-        requestHelper.makePostRequest("http://localhost:3000/api/festival/saved/performances", createAddEventResponseWindow,
+        requestHelper.makePostRequest("http://localhost:3000/api/festival/saved/performances", function(event){
+          if(event.value == false){
+            window.alert("Sorry, you are already attending an event at this time")
+          }
+        },
           jsonString)
       })
       addEventButton.innerText = "Add Event";
       listItem.appendChild(addEventButton);
-    });
+    })
   },
 
   createAddEventResponseWindow: function(result) {
