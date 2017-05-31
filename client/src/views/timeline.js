@@ -39,7 +39,6 @@ Timeline.prototype = {
       details.appendChild(description);
       listItem.appendChild(details);
 
-
       list.appendChild(listItem);
       container.appendChild(list);
 
@@ -53,21 +52,21 @@ Timeline.prototype = {
           "title": event.title,
           "start": event.start,
           "end": event.end
-        }])
+        }]);
         requestHelper.makePostRequest("http://localhost:3000/api/festival/saved/performances", function(event) {
           if (event.value == false) {
             window.alert("Sorry, you are already attending an event at this time")
           }
-        })
+        }, jsonString);
+      });
         addEventButton.innerText = "Add Event";
+        console.log(listItem)
         listItem.appendChild(addEventButton);
 
         summary.addEventListener('click', function() {
           var image = document.getElementById("url");
           image.setAttribute("src", event.image);
         });
-      })
-
     })
   }
 }
