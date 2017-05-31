@@ -7,7 +7,7 @@ var Timeline = function(events) {
   this.events = events;
   this.populateTimeline();
   this.createAddEventResponseWindow();
-  
+
 };
 
 Timeline.prototype = {
@@ -19,8 +19,8 @@ Timeline.prototype = {
 
     var container = document.getElementById("timeline");
     var list = document.createElement("ol");
-    list.className="timeline";
-    
+    list.className = "timeline";
+
     var sortedEvents = timelineHelper.sortByDate(this.events);
 
     sortedEvents.forEach(function(event) {
@@ -46,24 +46,29 @@ Timeline.prototype = {
 
       var addEventButton = document.createElement("button");
       addEventButton.id = event._id;
-      addEventButton.addEventListener("click", function(){
+      addEventButton.addEventListener("click", function() {
         console.log("making post request")
-        var jsonString = JSON.stringify([{"id": event._id, "code": event.code, "title": event.title, "start": event.start, "end": event.end}])
+        var jsonString = JSON.stringify([{
+          "id": event._id,
+          "code": event.code,
+          "title": event.title,
+          "start": event.start,
+          "end": event.end
+        }])
         requestHelper.makePostRequest("http://localhost:3000/api/festival/saved/performances", createAddEventResponseWindow,
-        jsonString)
+          jsonString)
       })
       addEventButton.innerText = "Add Event";
       listItem.appendChild(addEventButton);
     });
   },
 
-  createAddEventResponseWindow: function(result){
-    console.log(result)
-      var p = document.createElement("p")
-    if(result === true){
+  createAddEventResponseWindow: function(result) {
+    // console.log(result)
+    var p = document.createElement("p")
+    if (result === true) {
       p.innerText = "event has been added"
-    }
-    else if(result === false){
+    } else if (result === false) {
       p.innerText = "event cannot be added"
     }
     element = document.getElementById("saved-events-message")

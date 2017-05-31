@@ -10,7 +10,8 @@ PerformancesList.prototype = {
         start: performance.start,
         end: performance.end,
         title: performance.title,
-        description: performance.description
+        description: performance.description,
+        image: performance.image
       }
     });
     var jsonString = JSON.stringify(formattedEvents);

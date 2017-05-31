@@ -1,6 +1,6 @@
 var MapWrapper = function(container, coords, zoom) {
   var container = document.getElementById("main-map");
-  console.log('mapwrapper made')
+  // console.log('mapwrapper made')
   this.googleMap = new google.maps.Map(container, {
     center: coords,
     zoom: zoom
@@ -10,8 +10,8 @@ var MapWrapper = function(container, coords, zoom) {
 
 MapWrapper.prototype = {
   addMarker: function(coords) {
-    console.log("added marker");
-    console.log(coords);
+    // console.log("added marker");
+    // console.log(coords);
     var marker = new google.maps.Marker({
       animation: google.maps.Animation.DROP,
       position: coords,
@@ -24,10 +24,10 @@ MapWrapper.prototype = {
       google.maps.event.addListener(this.googleMap, 'click', function(event){
         var position = { lat: event.latLng.lat(), lng: event.latLng.lng()}
         this.addMarker(position);
-        console.log("map clicked");
-        console.log(this)
+        // console.log("map clicked");
+        // console.log(this)
         this.markerLocations.push(position);
-        console.log(this.markerLocations)
+        // console.log(this.markerLocations)
       }.bind(this))
 
     }
