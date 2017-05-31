@@ -74,6 +74,7 @@ UI.prototype = {
 
       for(performance of events){
         var button = document.createElement("button")
+        button.innerText = "X";
         button.addEventListener("click", function(){
           console.log(performance)
           requestHelper.makeDeleteRequest("http://localhost:3000/api/festival/saved/performances/remove/" + performance._id, function(){
