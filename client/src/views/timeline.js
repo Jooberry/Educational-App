@@ -26,7 +26,7 @@ var Timeline = function(events) {
     var summary = document.createElement("summary");
     summary.textContent = event.title;
     var description = document.createElement("p");
-    description.textContent = "Blah blah blah";
+    description.textContent = event.description;
     details.appendChild(summary);
     details.appendChild(description);
     listItem.appendChild(details);
@@ -52,7 +52,7 @@ var Timeline = function(events) {
     addEventButton.addEventListener("click", function(){
       console.log("making post request")
       var jsonString = JSON.stringify([{"id": event._id, "code": event.code, "title": event.title, "start": event.start, "end": event.end}])
-      requestHelper.makePostRequest("http://localhost:3000/api/festival/saved/performances", createAddEventReponseWindow,
+      requestHelper.makePostRequest("http://localhost:3000/api/festival/saved/performances", createAddEventResponseWindow,
       jsonString)
     })
     addEventButton.innerText = "Add Event";

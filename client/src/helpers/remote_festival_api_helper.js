@@ -64,6 +64,7 @@ RemoteFestivalAPIHelper.prototype = {
           for (performance of event.performances) {
             performance.code = event.code;
             performance.title = event.title;
+            performance.description = event.description;
             var thePerformance = new Performance(performance);
             performancesList.performances.push(thePerformance);
           }

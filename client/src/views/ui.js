@@ -15,7 +15,7 @@ var UI = function() {
 UI.prototype = {
 
   render: function() {
-    console.log("The UI has been asked to render");
+    // console.log("The UI has been asked to render");
 
     var setupFestivalAPI = function() {
       var populateButton = document.querySelector("#info-window #populate");
