@@ -33,6 +33,7 @@ RemoteFestivalAPIHelper.prototype = {
       return url;
     }
     var size = 100;
+    // var size = 100;
     var newQuery = queryComponent("festival", "jazz") +
       // queryComponent("size", 100) +
       queryComponent("size", size) +
@@ -40,10 +41,12 @@ RemoteFestivalAPIHelper.prototype = {
 
     var url = queryConstructor(newQuery);
 
+    console.log(url);
+
     function getAllEvents() {
       var request = new XMLHttpRequest();
       request.open('GET', url);
-      request.setRequestHeader("Accept", "application/json");
+      request.setRequestHeader("Accept", "application/json;ver=2.0");
 
       function onLoad() {
         if (this.status !== 200) {
@@ -54,16 +57,24 @@ RemoteFestivalAPIHelper.prototype = {
         console.log("INDEX", I_HATE_GLOBAL_VARIABLES, "TO", I_HATE_GLOBAL_VARIABLES + size, "-ish");
 
         var eventsList = new EventsList();
-        for (event of results) {
-          // var latitude = event.longitude;
-          // event.longitude = event.latitude;
-          // event.latitude = latitude;
+        for (var event of results) {
           var theEvent = new Event(event);
           eventsList.events.push(theEvent);
           var performancesList = new PerformancesList();
-          for (performance of event.performances) {
+
+          var imageLink;
+
+          for (var imageTypes in event.images) {
+            if (event.images[imageTypes].type === "hero") {
+              var url = "http:" + event.images[imageTypes].versions.original.url
+              imageLink = url;
+            }
+          }
+
+          for (var performance of event.performances) {
             performance.code = event.code;
             performance.title = event.title;
+            performance.image = imageLink;
             var thePerformance = new Performance(performance);
             performancesList.performances.push(thePerformance);
           }
