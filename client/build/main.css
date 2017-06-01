@@ -3,7 +3,7 @@ body {
   flex-wrap: column;
   width: 100%;
   height: 100%;
-  background-image: url("https://t3.ftcdn.net/jpg/01/13/14/22/240_F_113142227_5zd5Fwi2TdUIqvJHJ56s11Knmh0Wt1Bo.jpg");
+  background-image: url("https://s-media-cache-ak0.pinimg.com/originals/b9/8f/80/b98f802f7fc486a5b40c32005d50df27.jpg");
 }
 /*
 landing-page{
@@ -21,16 +21,25 @@ landing-page{
   z-index: 2;
 }
 */
+
+#populate {
+  display: none;
+}
+
+#log {
+  display: none;
+}
+
 #info-window {
-  width: 60%;
+  width: 55%;
   position: absolute;
 }
 
 #container {
   display: block;
   position: fixed;
-  left: 60%;
-  width: 40%;
+  left: 55%;
+  width: 45%;
   height: 100vh;
 }
 
@@ -39,12 +48,24 @@ landing-page{
   overflow: scroll;
   background-color: white;
   border-radius: 25px;
-  margin: 2%;
-  padding: 8px;
+  margin: 1.5%;
+  padding: 2% 8% 2% 8%;
+  font-size: 20px;
+  font-family: 'Handlee', cursive;
+  background-image: url("https://t4.ftcdn.net/jpg/01/31/02/47/240_F_131024721_rtslHM9oeCDM0XjC3JhYRtJa6fwjwyCd.jpg");
+  background-size: 100% 100%;
+}
+
+#saved-events-message td {
+  text-align: center;
+}
+
+#saved-events-message .titles {
+  text-align: left;
 }
 
 #image {
-  margin: 2%;
+  margin: 1.5%;
   height: 35%;
   background-image: url("https://www.hubtickets.co.uk/ArticleMedia/Images/Events/Jazz/EJBF17/EJF%201100x400.png");
   background-size: 100% 100%;
@@ -53,7 +74,7 @@ landing-page{
 }
 
 #main-map {
-  margin: 2%;
-  height: 37%;
+  margin: 1.5%;
+  height: 35%;
   border-radius: 25px;
 }

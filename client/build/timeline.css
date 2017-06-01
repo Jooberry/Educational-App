@@ -2,14 +2,6 @@
     list-style-type: none;
 }
 
-/*.timeline li > time + time:before {
-    content: "-";
-}*/
-
-/*.timeline li > time:last-of-type:after {
-    content: ": ";
-}*/
-
 .timeline li {
     border-left: 2px solid black;
 }
@@ -56,12 +48,12 @@
 
 .timeline li > pre, time:first-of-type:after {
     content: "\2022";
-    color: hotpink;
-    font-size: 3.5em;
+    color: #F40A0A;
+    font-size: 5em;
     line-height: 0.4em;
     position: absolute;
-    right: -0.54em;
-    top: -0.08em;
+    right: -0.34em;
+    top: -0.07em;
 }
 
 ol, ul {
@@ -74,4 +66,37 @@ ol, ul {
     margin: 3em;
     margin-left: 8em;
     margin-top: 1em;
+    color: white;
+    font-family: 'Barrio', sans-serif;
+}
+
+.timeline p {
+    font-family: 'Handlee', cursive;
+}
+
+.timeline button {
+      background: #4dc7f0;
+      background-image: -webkit-linear-gradient(top, #4dc7f0, #03a4b0);
+      background-image: -moz-linear-gradient(top, #4dc7f0, #03a4b0);
+      background-image: -ms-linear-gradient(top, #4dc7f0, #03a4b0);
+      background-image: -o-linear-gradient(top, #4dc7f0, #03a4b0);
+      background-image: linear-gradient(to bottom, #4dc7f0, #03a4b0);
+      -webkit-border-radius: 60;
+      -moz-border-radius: 60;
+      border-radius: 60px;
+      font-family: 'Kumar One', cursive;
+      color: #ffffff;
+      font-size: 18px;
+      padding: 2px 12px 2px 12px;
+      text-decoration: none;
+  }
+
+.timeline button:hover {
+    background: #b055fa;
+    background-image: -webkit-linear-gradient(top, #b055fa, #3498db);
+    background-image: -moz-linear-gradient(top, #b055fa, #3498db);
+    background-image: -ms-linear-gradient(top, #b055fa, #3498db);
+    background-image: -o-linear-gradient(top, #b055fa, #3498db);
+    background-image: linear-gradient(to bottom, #b055fa, #3498db);
+    text-decoration: none;
 }

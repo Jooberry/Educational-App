@@ -87,6 +87,7 @@ UI.prototype = {
         var tr = document.createElement("tr")
         var title = document.createElement("td")
         title.innerText = performance.title
+        title.className = "titles"
         tr.appendChild(title)
 
         var start = document.createElement("td")
